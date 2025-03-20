@@ -18,6 +18,3 @@ export default function NavBar() {
     </nav>
 
 }
-
-
-jhasjdhiuashdish
