@@ -1,5 +1,15 @@
+/* Ensure the whole page takes full height */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures full viewport height */
 }
 
 .App-logo {
@@ -35,4 +45,19 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Make sure content stretches but footer stays at bottom */
+.App-content {
+  flex-grow: 1; /* Pushes the footer down */
+  padding-top: 60px; /* Adjust based on header height */
+}
+
+.App-footer {
+  background-color: #282c34; /* Footer background */
+  color: white; /* Footer text color */
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  width: 100%;
 }
