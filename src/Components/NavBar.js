@@ -6,7 +6,7 @@ export default function NavBar() {
                 <a href="/about">About</a>
             </li>
             <li>
-                <a href="/option1">Option1</a>
+                <a href="/biases">Cognitive Biases</a>
             </li>
             <li>
                 <a href="/option2">Option2</a>

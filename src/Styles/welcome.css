@@ -1,0 +1,51 @@
+/* Center the content vertically */
+.welcome-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    padding-left: 4rem; /* Matches pl-16 from Tailwind */
+    background-color: #f8f9fa; /* Light gray background */
+  }
+  
+  /* Title styling */
+  .welcome-title {
+    font-size: 3rem;
+    font-family: serif;
+    font-style: italic;
+    margin-bottom: 1rem;
+    color: #222;
+  }
+  
+  /* Button container */
+  .button-group {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  /* Button styling */
+  .welcome-button {
+    padding: 12px 24px;
+    border-radius: 9999px; /* Makes it fully rounded */
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .welcome-button.gray {
+    background-color: #6b7280; /* Tailwind gray-500 */
+    color: white;
+  }
+  
+  .welcome-button.black {
+    background-color: #000;
+    color: white;
+  }
+  
+  /* Button hover effect */
+  .welcome-button:hover {
+    opacity: 0.8;
+  }
+  

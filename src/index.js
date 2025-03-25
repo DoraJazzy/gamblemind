@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import "./navbar.css";
-import "./Footer.css";
 import "./App.css";
+import "./Styles/navbar.css";
+import "./Styles/Footer.css";
+import "./Styles/welcome.css";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
