@@ -1,23 +1,24 @@
 import React from 'react';
 import Navbar from './Components/NavBar.js';
 import About from './Components/About.js';
-import Option1 from './Components/Option1.js';
 import Option2 from './Components/Option2.js';
 import Option3 from './Components/Option3.js';
 import Footer from './Components/Footer.js';
+import Welcome from './Components/Welcome.js';
+import Biases from './Components/Biases.js';
 
 function App() {
   let Component; 
 
   switch(window.location.pathname) {
     case "/":
-      Component = About;
+      Component = Welcome;
       break
       case "/about":
         Component = About;
         break
-        case "/option1":
-          Component = Option1;
+        case "/biases":
+          Component = Biases;
           break
           case "/option2":
             Component = Option2;
