@@ -8,12 +8,6 @@ export default function NavBar() {
             <li>
                 <a href="/biases">Cognitive Biases</a>
             </li>
-            <li>
-                <a href="/option2">Option2</a>
-            </li>
-            <li>
-                <a href="/option3">Option3</a>
-            </li>
         </ul>
     </nav>
 

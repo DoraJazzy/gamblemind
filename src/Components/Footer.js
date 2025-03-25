@@ -1,11 +1,10 @@
 import React from "react";
 
-function Footer() {
+function footer() {
     return (
         <footer className="footer">
             <p>© 2025 Gamble-Minded. All rights reserved.</p>
         </footer>
     );
 }
-
-export default Footer;
+export default footer;

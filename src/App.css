@@ -52,12 +52,3 @@ html, body, #root {
   flex-grow: 1; /* Pushes the footer down */
   padding-top: 60px; /* Adjust based on header height */
 }
-
-.App-footer {
-  background-color: #282c34; /* Footer background */
-  color: white; /* Footer text color */
-  padding: 20px;
-  text-align: center;
-  position: relative;
-  width: 100%;
-}
