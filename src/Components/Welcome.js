@@ -1,10 +1,11 @@
 import React from "react";
+import "@fontsource/squada-one";
 import "../Styles/welcome.css";
 
 export default function Welcome() {
   return (
     <div className="welcome-container">
-      <h1 className="welcome-title">gamble-minded</h1>
+      <h1 className="welcome-title">GAMBLE-MINDED</h1>
 
       <div className="button-group">
         <button
@@ -15,7 +16,7 @@ export default function Welcome() {
         </button>
 
         <button
-          className="welcome-button black"
+          className="welcome-button red"
           onClick={() => (window.location.pathname = "/biases")}
         >
           Cognitive Biases
