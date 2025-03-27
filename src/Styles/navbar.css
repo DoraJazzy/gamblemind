@@ -8,13 +8,15 @@ body {
 }
 
 .nav {
-    background-color: #333;
+    background-color: #5f5e5e;
     color: white;
     display: flex;
     justify-content: space-between;
     align-items: stretch;
     gap: 2rem;
     padding: 0 1rem;
+    height: 85px; /* Set a fixed height */
+    opacity: 0.9;
 }
 
 .site-title {
@@ -51,3 +53,14 @@ body {
     background-color: #555;
 }
 
+.site-logo {
+    display: flex;
+    align-items: center; /* Ensures the image is centered */
+    height: 100%; /* Matches navbar height */
+  }
+.site-logo img {
+    height: 200px; /* Adjust as needed */
+    width: auto;
+    display: block;
+    object-fit: contain; /* Ensures it fits without expanding navbar */
+}
