@@ -4,6 +4,7 @@ import About from './Components/About.js';
 import Footer from './Components/Footer.js';
 import Welcome from './Components/Welcome.js';
 import Biases from './Components/Biases.js';
+import { Ostrich }  from './Components/Ostrich.js';
 
 function App() {
   let Component; 
@@ -18,6 +19,9 @@ function App() {
         case "/biases":
           Component = Biases;
           break
+          case "/ostrich":
+            Component = Ostrich;
+            break
               default:
                 Component = () => <h1>404: Not Found</h1>
   }
