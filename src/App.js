@@ -30,6 +30,9 @@ function App() {
               case "/ProspectTheory":
                 Component = ProspectTheory;
                 break
+                case "/slotmachine":
+                  Component = SlotMachine; 
+                  break
                   default:
                     Component = () => <h1>404: Not Found</h1>
   }
