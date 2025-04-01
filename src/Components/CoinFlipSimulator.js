@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from "recharts";
+import '../Styles/CoinFlipSimulator.css';
 
 export default function CoinFlipSimulator() {
     const [flips, setFlips] = useState([]);
@@ -41,6 +42,13 @@ export default function CoinFlipSimulator() {
             T: prev.T + tailsCount,
         }));
     };
+    const resetFlips = () => {
+        setFlips([]); // Clears the coin flip results
+        setFlipCounts({ H: 0, T: 0 }); // Resets the counts for the graph
+        setMessage(''); // Clear previous messages
+        setStreakMessage(''); // Clear the streak message
+        setDecisionButtonsVisible(false); // Hide decision buttons again, if necessary
+    };
 
     const handleGuess = (guess) => {
         setMessage(`You guessed: ${guess}. The probability of tails is 50% regardless of past flips! This is the Monte Carlo Fallacy—past events do not change the odds.`);
@@ -56,7 +64,7 @@ export default function CoinFlipSimulator() {
     const CustomTooltip = ({ active, payload }) => {
         if (active && payload && payload.length) {
             return (
-                <div style={{ background: "#fff", padding: "10px", border: "1px solid #ccc", borderRadius: "5px" }}>
+                <div className="custom-tooltip">
                     <p>{`${payload[0].payload.outcome}: ${payload[0].value}`}</p>
                     <p>{`Probability: ${(payload[0].payload.probability * 100).toFixed(2)}%`}</p>
                 </div>
@@ -66,17 +74,18 @@ export default function CoinFlipSimulator() {
     };
 
     return (
-        <div style={{ textAlign: "center" }}>
+        <div className="coin-flip-container">
             <h2>Coin Flip Simulator</h2>
             <p>Flip a coin and see the probability of getting heads or tails!</p>
             <p>Total Flips: {totalFlips}</p>
             <button onClick={() => flipCoin(1)}>Flip 1 Coin</button>
+            <button className="reset-button" onClick={resetFlips}>Reset</button>
     
             <p>Last Flips: {flips.join(', ')}</p>
             {streakMessage && <p>{streakMessage}</p>}
             
             {decisionButtonsVisible && (
-                <div>
+                <div className="decision-buttons">
                     <button onClick={() => handleGuess('It is most likely to be tails')}>It is most likely to be tails</button>
                     <button onClick={() => handleGuess('It is most likely to be heads')}>It is most likely to be heads</button>
                     <button onClick={() => handleGuess('It is 50/50')}>It is 50/50</button>
@@ -89,15 +98,17 @@ export default function CoinFlipSimulator() {
                 </div>
             )}
 
-            {message && <p>{message}</p>}
+            {message && <div className="message-box">{message}</div>}
 
-            <BarChart width={600} height={500} data={data} style={{ margin: "20px auto" }}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="outcome" />
-                <YAxis tickFormatter={(value) => `${(value * 100).toFixed(1)}%`} />
-                <Tooltip content={<CustomTooltip />} />
-                <Bar dataKey="probability" fill="#8884d8" />
-            </BarChart>
+            <div className="chart-container">
+                <BarChart width={600} height={400} data={data}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="outcome" />
+                    <YAxis tickFormatter={(value) => `${(value * 100).toFixed(1)}%`} />
+                    <Tooltip content={<CustomTooltip />} />
+                    <Bar dataKey="probability" fill="#8884d8" />
+                </BarChart>
+            </div>
         </div>
     );
 }
