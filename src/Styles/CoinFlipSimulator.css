@@ -9,6 +9,23 @@
     box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
     border: none;
 }
+.flip-coin-button {
+    background: linear-gradient(45deg, #ffcc00, #ff9900); /* Customize as you like */
+    color: black;
+    border: none;
+    padding: 12px 18px;
+    margin: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+    animation: glitter 2s infinite ease-in-out;
+}
+
+.flip-coin-button:hover {
+    background: linear-gradient(45deg, #ffdd33, #ffbb00); /* Customize hover effect */
+    transform: scale(1.05);
+}
 
 .chart-container {
     display: flex;
@@ -22,6 +39,13 @@
     margin: 20px auto;
 }
 
+@keyframes glitter {
+    0% { box-shadow: 0 0 5px #ffcc00; }
+    25% { box-shadow: 0 0 10px #ffcc00, 0 0 15px #ff9900; }
+    50% { box-shadow: 0 0 20px #ffcc00, 0 0 30px #ff9900; }
+    75% { box-shadow: 0 0 10px #ffcc00, 0 0 15px #ff9900; }
+    100% { box-shadow: 0 0 5px #ffcc00; }
+}
 
 h2 {
     font-size: 28px;
