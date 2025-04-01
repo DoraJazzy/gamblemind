@@ -13,6 +13,11 @@ export default function LossAversionChart() {
         }
     };
 
+    const resetChart = () => {
+        setLineY(0);  // Reset line position
+        setDotX(0);   // Reset dot position
+    };
+
     // Static data for the loss aversion curve
     const data = [
         { x: -200, y: -40 },
@@ -38,6 +43,8 @@ export default function LossAversionChart() {
         <div style={{ textAlign: "center" }}>
             <h2>Loss Aversion Chart</h2>
             <button onClick={moveLineDown}>Lose Money</button>
+            <button onClick={resetChart}>Reset
+            </button>
 
             <LineChart width={800} height={800/1.5} data={data} style={{ margin: "20px auto" }}>
                 <CartesianGrid strokeDasharray="3 3" />

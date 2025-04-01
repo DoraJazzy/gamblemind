@@ -2,18 +2,25 @@ import React from "react";
 import "../Styles/biases.css";
 import luck from "../Visuals/luck.svg";
 import ostrich from "../Visuals/ostrich.svg";
+import monte from "../Visuals/monte.svg";
+import loss from "../Visuals/loss.svg";
+import miss from "../Visuals/miss.svg";
+import base from "../Visuals/base.svg";
+import hot from "../Visuals/hot.svg";
+import ratio from "../Visuals/ratio.svg";
+
 
 
 export default function Biases() {
   const biases = [
-    { name: "Ostrich Effect", path: "/ostrich", image: ostrich },
-    { name: "Monte-Carlo Fallacy", path: "/CoinFlipSimulator" },
-    { name: "Prospect Theory", path: "/ProspectTheory" },
-    { name: "Bias 4", path: "/bias4", image: luck },
-    { name: "Bias 5", path: "/bias5" },
-    { name: "Bias 6", path: "/bias6" },
-    { name: "Bias 7", path: "/bias7" },
-    { name: "Bias 8", path: "/bias8" },
+    { path: "/ostrich", image: ostrich },
+    { path: "/CoinFlipSimulator", image: monte },
+    { path: "/ProspectTheory", image: loss },
+    { path: "/bias4", image: luck },
+    { path: "/bias5", image: miss },
+    { path: "/bias6", image: base },
+    { path: "/bias7", image: hot },
+    { path: "/bias8", image: ratio },
   ];
 
   return (
