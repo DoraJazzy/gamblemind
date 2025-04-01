@@ -5,6 +5,7 @@ import Footer from './Components/Footer.js';
 import Welcome from './Components/Welcome.js';
 import Biases from './Components/Biases.js';
 import { Ostrich }  from './Components/Ostrich.js';
+import SlotMachine from './Components/SlotMachine.tsx';
 import CoinFlipSimulator from './Components/CoinFlipSimulator.js';
 import ProspectTheory from './Components/ProspectTheory.js';
 
@@ -24,7 +25,10 @@ function App() {
           case "/ostrich":
             Component = Ostrich;
             break
-            case "/CoinFlipSimulator":
+            case "/slotmachine":
+              Component = SlotMachine; 
+              break
+              case "/CoinFlipSimulator":
               Component = CoinFlipSimulator;
               break
               case "/ProspectTheory":

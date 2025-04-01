@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import "./App.css";
+import "./App.css"; 
 import "./Styles/navbar.css";
 import "./Styles/footer.css";
 import "./Styles/welcome.css";
