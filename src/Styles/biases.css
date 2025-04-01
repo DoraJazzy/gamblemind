@@ -1,36 +1,52 @@
 .biases-container {
     text-align: center;
     padding: 20px;
-  }
-  
-  .biases-title {
+}
+
+.biases-title {
     font-size: 2rem;
-    font-weight: bold;
     margin-bottom: 20px;
-  }
-  
-  .bias-grid {
+    font-weight: bold;
+}
+
+.bias-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
     gap: 20px;
     justify-content: center;
-  }
-  
-  .bias-button {
-    background: black;
-    color: white;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.bias-button {
+    background-color: gray;
+    color: black;
     border: none;
-    padding: 15px;
     border-radius: 10px;
-    font-size: 1.2rem;
+    padding: 15px;
     cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  
-  .bias-icon {
-    width: 50px; /* Adjust as needed */
-    margin-bottom: 10px;
-  }
-  
+    text-align: center;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0px 10px 25px rgba(255, 255, 255, 0.1);
+}
+
+.bias-button:hover {
+    transform: scale(1.05);
+}
+
+.bias-icon {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Make images fit like posters */
+    border-radius: 10px;
+}
+
+.bias-name {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+}

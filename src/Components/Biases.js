@@ -1,11 +1,12 @@
 import React from "react";
 import "../Styles/biases.css";
-import luck from "../Visuals/luck.svg"; 
+import luck from "../Visuals/luck.svg";
+import ostrich from "../Visuals/ostrich.svg";
 
 
 export default function Biases() {
   const biases = [
-    { name: "Ostrich Effect", path: "/ostrich" },
+    { name: "Ostrich Effect", path: "/ostrich", image: ostrich },
     { name: "Monte-Carlo Fallacy", path: "/CoinFlipSimulator" },
     { name: "Prospect Theory", path: "/ProspectTheory" },
     { name: "Bias 4", path: "/bias4", image: luck },
@@ -21,8 +22,8 @@ export default function Biases() {
       <div className="bias-grid">
         {biases.map((bias, index) => (
           <button key={index} className="bias-button" onClick={() => (window.location.pathname = bias.path)}>
-            <img src="/path-to-icon.png" alt={bias.name} className="bias-icon" />
-            <span>{bias.name}</span>
+            <img src={bias.image} alt={bias.name} className="bias-icon" />
+            <span className="bias-name">{bias.name}</span>
           </button>
         ))}
       </div>
