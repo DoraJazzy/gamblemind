@@ -9,7 +9,7 @@ export function Ostrich() {
         if (option === 'Keep Playing') {
             setMessage('You’ve decided to keep playing! This reaction is classic confirmation bias—your brain focuses on the win and ignores the overall loss. This is how casinos hook your brain.');
         } else if (option === 'Stop Playing') {
-            setMessage('It’s tough, but you chose to stop playing. Smart move! Great job, you are not like an ostrich!');
+            setMessage('It’s tough, but you managed to face the truth. Smart move, you are not like an ostrich; therefore, you are less likely to keep playing and lose even more money!');
         }
     };
 
@@ -32,6 +32,9 @@ export function Ostrich() {
 
             <h3>Pro Tip:</h3>
             <p>Track your wins and losses on paper or in your notes.</p>
+            <p>Confirmation bias/ostrich effect can lead people to seek 
+                out or ignore information based on whether it aligns 
+                with their beliefs or avoids negative implications.</p>
 
             <MonteCarloFallacy />
         </div>
@@ -95,7 +98,7 @@ function CoinFlipGame() {
 
             <h3>Pro Tip:</h3>
 
-<p>Tracking your bets is smart—but don’t let a losing streak trick you. If red hasn’t hit in five spins, that doesn’t mean it’s “due” next. Each spin is independent, No matter how many times it was black before it doesn’t make it more likely to hit red next time. The roulette wheel doesn’t have memory!
+<p>Tracking your bets is smart—but don’t let a losing streak trick you. If red hasn’t hit in five spins, that doesn’t mean it’s “due” next. Each spin is independent, no matter how many times it was black before it doesn’t make it more likely to hit red next time. The roulette wheel doesn’t have a memory!
 </p>
         </div>
 
