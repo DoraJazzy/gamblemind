@@ -1,5 +1,4 @@
 import React from 'react';
-import Ostrich from './Ostrich';
 
 export default function Biases() {    
     return (
@@ -9,6 +8,9 @@ export default function Biases() {
 
             <button onClick={() => (window.location.pathname = "/ostrich")}>
                 Ostrich Effect
+            </button>
+            <button onClick={() => (window.location.pathname = "/slotmachine")}>
+                Slot Machine Effect
             </button>
         </div>
     );
