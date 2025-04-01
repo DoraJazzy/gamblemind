@@ -1,12 +1,25 @@
-/* footer stays at the bottom */
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures the page takes up at least the full viewport height */
+}
+
+.content {
+  flex: 1; /* Pushes the footer down */
+  padding-bottom: 50px; /* Prevents content from being covered */
+}
+
 .footer {
-  background-color: #5f5e5e;
+  background-color: #777;
   color: white;
-  padding: 2px;
+  padding: 10px;
   text-align: center;
   width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  opacity: 0.9;
-  }
+  font-size: 0.8em;
+  height: 50px;
+}
