@@ -7,6 +7,7 @@ import Biases from './Components/Biases.js';
 import { Ostrich }  from './Components/Ostrich.js';
 import CoinFlipSimulator from './Components/CoinFlipSimulator.js';
 import ProspectTheory from './Components/ProspectTheory.js';
+import SlotMachine from './Components/SlotMachine.tsx';
 
 function App() {
   let Component; 
@@ -30,6 +31,9 @@ function App() {
               case "/ProspectTheory":
                 Component = ProspectTheory;
                 break
+                case "/slotmachine":
+                  Component = SlotMachine; 
+                  break
                   default:
                     Component = () => <h1>404: Not Found</h1>
   }
