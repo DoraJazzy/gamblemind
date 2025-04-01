@@ -30,8 +30,8 @@ function App() {
               case "/ProspectTheory":
                 Component = ProspectTheory;
                 break
-              default:
-                Component = () => <h1>404: Not Found</h1>
+                  default:
+                    Component = () => <h1>404: Not Found</h1>
   }
   return (
   <div>

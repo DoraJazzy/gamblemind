@@ -1,0 +1,36 @@
+.biases-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .biases-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .bias-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .bias-button {
+    background: black;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .bias-icon {
+    width: 50px; /* Adjust as needed */
+    margin-bottom: 10px;
+  }
+  
