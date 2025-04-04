@@ -1,13 +1,16 @@
 /* General Styling */
 .base-rate-container {
-    background-color: #121212;
+    background-color: #262626;
     color: #5cc0a1;
     text-align: center;
     padding: 20px;
     border-radius: 10px;
-    width: 90%;
-    margin: auto;
+    width: 100%;
     min-height: 84vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
 }
 
 /* Drag & Drop Container */
@@ -18,12 +21,13 @@
     overflow-x: auto;
     padding: 15px;
     justify-content: center;
+    align-items: center;
 }
 
 /* Event Cards */
 .card {
     padding: 12px;
-    background-color: #1E1E1E;
+    background-color: #262626;
     border: 3px solid #5cc0a1;
     border-radius: 10px;
     cursor: grab;
@@ -46,7 +50,7 @@
 /* Button */
 .check-button {
     background-color: #5cc0a1;
-    color: #121212;
+    color: #262626;
     font-size: 1rem;
     padding: 10px 20px;
     border: none;
