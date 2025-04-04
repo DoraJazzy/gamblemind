@@ -1,0 +1,77 @@
+body {
+    background: linear-gradient(45deg, grey 0%, lightgrey 100%);
+    display: flex;
+    align-items: center;
+}
+
+.slot-machine {
+    background: #ccc; /* Light grey background for the slot machine container */
+    border: 5px solid #888; /* Darker border for the container */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px;
+    display: inline-flex;
+    flex-direction: vertical; /* Stack title, reels, and button vertically */
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
+    width: 100%; /* Make the slot machine responsive */
+    max-width: 600px; /* Limit the width for larger screens */
+    height: auto; /* Allow the height to adjust dynamically */
+}
+
+.hot-hand-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.hot-hand-description {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.slots {
+    display: flex; /* Display reels side by side */
+    justify-content: center;
+    align-items: center;
+    width: calc(3 * 79px); /* Adjust width for 3 reels */
+    height: calc(9 * 79px); /* Adjust height for 9 icons per reel */
+    overflow: hidden; /* Hide overflowing content */
+    border: 3px solid #444; /* Border around the reels */
+    background: #fff; /* White background for the reels */
+    border-radius: 5px; /* Rounded corners for the reels container */
+    margin-bottom: 20px; /* Add spacing below the reels */
+    box-sizing: border-box; /* Ensure padding and border are included in width/height */
+}
+
+.reel {
+    width: 79px; /* Width of each reel */
+    height: calc(9 * 79px); /* Height of each reel to display 9 icons */
+    background-image: url(https://assets.codepen.io/439000/slotreel.webp); /* Sprite sheet for icons */
+    background-size: auto 900%; /* Adjust based on the number of icons */
+    background-repeat: repeat-y; /* Repeat vertically */
+    background-position: 0 0; /* Initial position */
+    border-right: 2px solid #ccc; /* Add spacing between reels */
+    box-sizing: border-box; /* Ensure padding and border are included in width/height */
+}
+
+.reel:last-child {
+    border-right: none; /* Remove border for the last reel */
+}
+
+.spin-button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: white;
+    background: linear-gradient(45deg, #ff6b6b, #f06595);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.spin-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
