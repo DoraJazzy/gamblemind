@@ -1,20 +1,13 @@
-body {
-    background: linear-gradient(45deg, grey 0%, lightgrey 100%);
-    display: flex;
-    align-items: center;
-}
+
 
 .slot-machine {
     background: #ccc; /* Light grey background for the slot machine container */
-    border: 5px solid #888; /* Darker border for the container */
-    border-radius: 10px; /* Rounded corners */
     padding: 20px;
-    display: inline-flex;
-    flex-direction: vertical; /* Stack title, reels, and button vertically */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack title, reels, and button vertically */
     align-items: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
     width: 100%; /* Make the slot machine responsive */
-    max-width: 600px; /* Limit the width for larger screens */
     height: auto; /* Allow the height to adjust dynamically */
 }
 
@@ -36,7 +29,7 @@ body {
     justify-content: center;
     align-items: center;
     width: calc(3 * 79px); /* Adjust width for 3 reels */
-    height: calc(9 * 79px); /* Adjust height for 9 icons per reel */
+    height: calc(3 * 79px); /* Adjust height for 9 icons per reel */
     overflow: hidden; /* Hide overflowing content */
     border: 3px solid #444; /* Border around the reels */
     background: #fff; /* White background for the reels */
@@ -47,9 +40,9 @@ body {
 
 .reel {
     width: 79px; /* Width of each reel */
-    height: calc(9 * 79px); /* Height of each reel to display 9 icons */
+    height: calc(3 * 79px); /* Height of each reel to display 9 icons */
     background-image: url(https://assets.codepen.io/439000/slotreel.webp); /* Sprite sheet for icons */
-    background-size: auto 900%; /* Adjust based on the number of icons */
+    background-size: auto 300%; /* Adjust based on the number of icons */
     background-repeat: repeat-y; /* Repeat vertically */
     background-position: 0 0; /* Initial position */
     border-right: 2px solid #ccc; /* Add spacing between reels */

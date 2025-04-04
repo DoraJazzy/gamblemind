@@ -1,9 +1,15 @@
 import React, { useEffect, useRef } from "react";
 import "../Styles/slotmachine.css"; 
+import Confetti from "react-confetti";
+import { useWindowSize } from "react-use"; // Import the useWindowSize hook
 
 const icon_height = 79
 const num_icons = 9
 const time_per_icon = 100
+const indexes = [0, 0, 0]
+const iconMap = ["banana", "seven", "cherry", "plum", "orange", "bell", "bar", "lemon", "watermelon"];
+
+
 
 const roll = (reel, offset = 0) => {
     const delta = (offset + 2) * num_icons + Math.round(Math.random() * 2 * num_icons);
@@ -27,10 +33,14 @@ const roll = (reel, offset = 0) => {
 };
 
 const SlotMachine = () => {
+  const { width, height } = useWindowSize(); // Get the window size
   const reelsRef = useRef([]);
   const indexesRef = useRef([0, 0, 0]);
-
+  const [isSpinning, setIsSpinning] = React.useState(false);
+  console.log(isSpinning)
   const rollAll = () => {
+    setIsSpinning(true);
+
     const reelsList = reelsRef.current;
     if (reelsList.length !== 3) return;
 
@@ -38,7 +48,7 @@ const SlotMachine = () => {
       deltas.forEach((delta, i) => {
         indexesRef.current[i] = (indexesRef.current[i] + delta) % num_icons;
       });
-
+      setIsSpinning(false);
       console.log("Indexes:", indexesRef.current);
 
       if (
@@ -61,6 +71,7 @@ const SlotMachine = () => {
   return (
     <div className="slot-machine">
         {/* Title and description */}
+        {!isSpinning && <Confetti width={width} height={height} />}
         <h1 className="hot-hand-title">Hot hand fallacy</h1>
         <p className="hot-hand-description">
             Spin the reels and try your luck! Match all three symbols to win big!
@@ -78,8 +89,8 @@ const SlotMachine = () => {
         </div>
 
         {/* Spin button */}
-        <button className="spin-button" onClick={rollAll}>
-            Spin
+        <button className="spin-button" onClick={rollAll} disabled={isSpinning}>
+            {isSpinning ? "Spinning..." : "Spin"}
         </button>
     </div>
 );

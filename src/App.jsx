@@ -7,7 +7,7 @@ import Biases from './Components/Biases.js';
 import { Ostrich }  from './Components/Ostrich.js';
 import CoinFlipSimulator from './Components/CoinFlipSimulator.js';
 import ProspectTheory from './Components/ProspectTheory.js';
-import SlotMachine from './Components/SlotMachine.js';
+import SlotMachine from './Components/SlotMachine.jsx';
 
 
 
