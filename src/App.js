@@ -8,6 +8,7 @@ import { Ostrich }  from './Components/Ostrich.js';
 import CoinFlipSimulator from './Components/CoinFlipSimulator.js';
 import ProspectTheory from './Components/ProspectTheory.js';
 import SlotMachine from './Components/SlotMachine.tsx';
+import BaseRateNeglect from './Components/BaseRateNeglect.js';
 
 function App() {
   let Component; 
@@ -34,7 +35,10 @@ function App() {
                 case "/slotmachine":
                   Component = SlotMachine; 
                   break
-                  default:
+                  case "/baserateneglect":
+                    Component = BaseRateNeglect;
+                    break
+                    default:
                     Component = () => <h1>404: Not Found</h1>
   }
   return (
