@@ -1,0 +1,72 @@
+/* General Styling */
+.base-rate-container {
+    background-color: #262626;
+    color: #5cc0a1;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    min-height: 84vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+}
+
+/* Drag & Drop Container */
+.event-container {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Event Cards */
+.card {
+    padding: 12px;
+    background-color: #262626;
+    border: 3px solid #5cc0a1;
+    border-radius: 10px;
+    cursor: grab;
+    text-align: center;
+    min-width: 200px;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    color: white;
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+/* Button */
+.check-button {
+    background-color: #5cc0a1;
+    color: #262626;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    margin-top: 15px;
+    transition: background 0.3s;
+}
+
+.check-button:hover {
+    background-color: #5cc0a1;
+}
+
+/* Feedback */
+.feedback {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: white;
+}
