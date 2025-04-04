@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, ReferenceLine, ReferenceDot } from 'recharts';
+import '../Styles/prospect.css'; 
 
 export default function LossAversionChart() {
     const [lineY, setLineY] = useState(0);
@@ -40,29 +41,36 @@ export default function LossAversionChart() {
     };
 
     return (
-        <div style={{ textAlign: "center" }}>
-            <h2>Loss Aversion Chart</h2>
-            <button onClick={moveLineDown}>Lose Money</button>
-            <button onClick={resetChart}>Reset
-            </button>
+        <div className="prospect-container">
+            <h2 style={{ color: '#ff4444' }}>Loss Aversion Chart</h2>
+            <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
+                <button className="prospect-button" onClick={moveLineDown}>Lose Money</button>
+                <button className="prospect-button" onClick={resetChart}>Reset Your Mindset</button>
+            </div>
 
-            <LineChart width={800} height={800/1.5} data={data} style={{ margin: "20px auto" }}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis
-                    dataKey="x"
-                    tickFormatter={(value) => (value === 0 ? '0' : (value < 0 ? '-' + Math.abs(value).toFixed(2) : '+' + Math.abs(value).toFixed(2)))}
-                    domain={[-200, 200]}
-                    label={{ value: 'Money Lost/Gained', position: 'insideBottom', offset: -1.5, style: { fontSize: '20px' } }}
-                />
-                <YAxis
-                    domain={[-40, 40]}
-                    label={{ value: 'Utility', angle: -90, position: 'centre', offset: 0, style: { fontSize: '20px' } }}
-                />
-                <Tooltip content={<CustomTooltip />} />
-                <Line type="monotone" dataKey="y" data={data} stroke="black" strokeWidth={3} />
-                <ReferenceLine y={lineY} stroke="red" strokeDasharray="5 5" strokeWidth={3} />
-                <ReferenceDot x={dotX} y={lineY} stroke="red" fill="red" r={8} />
-            </LineChart>
+            <div style={{ width: '800px', height: '600px', margin: '20px auto' }}>
+                <LineChart width={800} height={600} data={data}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis
+                        dataKey="x"
+                        tickFormatter={(value) => (value === 0 ? '0' : (value < 0 ? '-' + Math.abs(value).toFixed(2) : '+' + Math.abs(value).toFixed(2)))}
+                        domain={[-200, 200]}
+                        label={{ value: 'Money Lost/Gained', position: 'insideBottom', offset: -1.5, style: { fontSize: '20px' } }}
+                    />
+                    <YAxis
+                        domain={[-40, 40]}
+                        label={{ value: 'Utility', angle: -90, position: 'centre', offset: 0, style: { fontSize: '20px' } }}
+                    />
+                    <Tooltip content={<CustomTooltip />} />
+                    <Line type="monotone" dataKey="y" data={data} stroke="white" strokeWidth={3} />
+                    <ReferenceLine y={lineY} stroke="red" strokeDasharray="5 5" strokeWidth={3} />
+                    <ReferenceDot x={dotX} y={lineY} stroke="red" fill="red" r={8} />
+                </LineChart>
+            </div>
+
+            <p className="prospect-p">
+                This loss aversion curve illustrates how losses tend to have a greater emotional impact than equivalent gains. The steeper slope for losses shows why people often take bigger risks to avoid losing money. This bias can lead to poor decision-making, such as chasing losses in gambling. Before making a decision, ask yourself if you're trying to recoup losses. If so, it might be better to refrain from betting.
+            </p>
         </div>
     );
 }
