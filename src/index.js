@@ -10,7 +10,9 @@ import "./Styles/welcome.css";
 import"./Styles/about.css";
 import "./Styles/biases.css";
 import "./Styles/BaseRateNeglect.css";
-
+import "./Styles/ostrich.css";
+import "./Styles/CoinFlipSimulator.css";
+import "./Styles/prospect.css";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

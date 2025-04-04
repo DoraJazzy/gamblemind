@@ -1,0 +1,47 @@
+/* General Styling for Ostrich Component */
+.ostrich-container {
+    background-color: #262626;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    min-height: 84vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    color: #6e2dea;
+}
+
+/* Button */
+.button {
+    background-color: #6e2dea;
+    color: white;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    margin-top: 20px;
+    transition: background 0.3s;
+}
+.button:hover {
+    transform: scale(1.1);
+    background-color: #4b1aa6;
+}
+
+/* Feedback */
+.ostrich-feedback {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: white;
+}
+
+/* Button Container */
+.ostrich-button {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}

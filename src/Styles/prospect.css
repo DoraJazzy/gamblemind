@@ -1,0 +1,60 @@
+/* General Styling for Loss Aversion Chart */
+.prospect-container {
+    background-color: #262626;
+    padding: 10px;
+    border-radius: 10px;
+    min-height: 100vh; /* Use min-height: 100vh instead of min-height: 100% */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    color: white; /* Changed color to white for better visibility */
+}
+
+/* Button */
+.prospect-button {
+    background-color: #ff4444;
+    color: #262626;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    margin-top: 15px;
+    width: 200px;
+    transition: background 0.3s;
+}
+
+.prospect-button:hover {
+    background-color: #a81a1a; /* Slightly darker on hover */
+}
+
+.prospect-p {
+    color: white;
+    font-size: 18px;
+    margin: 20px auto;
+    max-width: 600px;
+    text-align: center; /* Center text */
+}
+
+/* Additional Styles */
+.chart-graph .recharts-cartesian-grid {
+    stroke: #5cc0a1;
+}
+
+.chart-graph .recharts-line {
+    stroke: black;
+    stroke-width: 3;
+}
+
+.chart-graph .recharts-reference-line {
+    stroke: red;
+    stroke-dasharray: "5 5";
+    stroke-width: 3;
+}
+
+.chart-graph .recharts-reference-dot {
+    stroke: red;
+    fill: red;
+    r: 8;
+}
