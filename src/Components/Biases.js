@@ -11,6 +11,7 @@ import ratio from "../Visuals/ratio.svg";
 
 
 
+
 export default function Biases() {
   const biases = [
     { path: "/ostrich", image: ostrich },
