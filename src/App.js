@@ -9,6 +9,7 @@ import CoinFlipSimulator from './Components/CoinFlipSimulator.js';
 import ProspectTheory from './Components/ProspectTheory.js';
 import SlotMachine from './Components/SlotMachine.tsx';
 import BaseRateNeglect from './Components/BaseRateNeglect.js';
+import HotHand from './Components/HotHand.jsx';
 
 function App() {
   let Component; 
@@ -37,6 +38,9 @@ function App() {
                   break
                   case "/baserateneglect":
                     Component = BaseRateNeglect;
+                    break
+                    case "/HotHand":
+                    Component = HotHand;
                     break
                     default:
                     Component = () => <h1>404: Not Found</h1>

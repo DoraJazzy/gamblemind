@@ -27,7 +27,7 @@ const EventItem = ({ event, index, moveCardHandler, showOdds }) => {
     });
 
     return (
-        <div ref={(node) => ref(drop(node))} className="card">
+        <div ref={(node) => ref(drop(node))} className="basecard">
             {event.name} {showOdds && `- 1 in ${Math.round(1 / event.probability).toLocaleString()}`}
         </div>
     );
