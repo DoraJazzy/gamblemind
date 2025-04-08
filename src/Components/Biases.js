@@ -17,9 +17,9 @@ export default function Biases() {
     { path: "/CoinFlipSimulator", image: monte },
     { path: "/ProspectTheory", image: loss },
     { path: "/bias4", image: luck },
-    { path: "/bias5", image: miss },
+    { path: "/slotmachine", image: miss },
     { path: "/bias6", image: base },
-    { path: "/slotmachine", image: hot },
+    { path: "/bias5", image: hot },
     { path: "/bias8", image: ratio },
   ];
 
