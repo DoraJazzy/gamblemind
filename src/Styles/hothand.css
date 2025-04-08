@@ -13,19 +13,20 @@
 
 /* Buttons */
 .hotbutton {
-    background-color: #ff4444;
+    background-color: #e47824;
     color: #262626;
     font-size: 1rem;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
     border-radius: 6px;
-    margin: 15px 0;
     transition: background 0.3s;
 }
 
 .hotbutton:hover {
-    background-color: #a81a1a;
+    background-color: #ad5614;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 /* Vertical Card Layout */
@@ -36,12 +37,18 @@
     width: 100%;
     max-width: 800px;
     margin: 20px 0;
+    color: #e47824;
 }
 
 .hand-column {
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: #e47824;
+}
+/* Change h2 color to #e47824 */
+.hand-column h2 {
+    color: #e47824;
 }
 
 .hand {
@@ -121,7 +128,7 @@
 }
 
 #streak {
-    color: #ff4444;
+    color: #e47824;
 }
 
 /* Mobile Responsiveness */
@@ -136,4 +143,8 @@
         height: 80px;
         font-size: 1rem;
     }
+}
+
+.game-completed-message h2 {
+    color: #e47824;
 }
