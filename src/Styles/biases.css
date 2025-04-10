@@ -1,6 +1,11 @@
 .biases-container {
     text-align: center;
     padding: 20px;
+    min-height: 84vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Background Image with Opacity */
@@ -21,6 +26,7 @@
     font-size: 2rem;
     margin-bottom: 20px;
     font-weight: bold;
+    color: black
 }
 
 .bias-grid {

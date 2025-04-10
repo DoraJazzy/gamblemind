@@ -60,7 +60,8 @@ const BaseRateNeglect = () => {
     return (
         <DndProvider backend={HTML5Backend}>
             <div className="base-rate-container">
-                <h1>Order Events by Decreasing Probability (from left to right)</h1>
+                <h1>Base-Rate Neglect</h1>
+                <p>Drag and drop the events to arrange them in order of decreasing probability (from left to right).</p>
                 <div className="event-container">
                     {orderedEvents.map((event, index) => (
                         <EventItem key={event.id} index={index} event={event} moveCardHandler={moveCardHandler} showOdds={showOdds} />

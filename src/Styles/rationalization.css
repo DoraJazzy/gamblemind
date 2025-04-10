@@ -4,6 +4,7 @@
     background-color: #2e1f1a;
     font-family: 'Press Start 2P', cursive;
     color: #f4e2c4;
+    min-height: 84vh;
 }
 
 .chat-layout {

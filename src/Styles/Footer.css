@@ -1,25 +1,29 @@
-body, html {
-  height: 100%;
-  margin: 0;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* Ensures the page takes up at least the full viewport height */
-}
-
-.content {
-  flex: 1; /* Pushes the footer down */
-  padding-bottom: 50px; /* Prevents content from being covered */
-}
-
-.footer {
-  background-color: #777;
+.app-footer {
+  background-color: black;
   color: white;
-  padding: 10px;
+  padding: 0.25rem 1rem; /* Super tight padding */
   text-align: center;
+  margin-top: auto;
   width: 100%;
-  font-size: 0.8em;
-  height: 50px;
+  font-size: 0.5rem; /* Tiny text */
+  line-height: 1; /* No extra spacing */
+  height: 60px; /* Fixed minimal height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Remove padding completely on mobile */
+@media (max-width: 768px) {
+  .app-footer {
+    padding: 0.1rem;
+    height: 20px;
+    font-size: 0.5rem;
+  }
 }

@@ -16,7 +16,7 @@ export default function Biases() {
     { path: "/ostrich", image: ostrich },
     { path: "/CoinFlipSimulator", image: monte },
     { path: "/ProspectTheory", image: loss },
-    { path: "/bias4", image: luck },
+    { path: "/illusion", image: luck },
     { path: "/slotmachine", image: miss },
     { path: "/baserateneglect", image: base },
     { path: "/HotHand", image: hot },

@@ -11,6 +11,7 @@ import BaseRateNeglect from './Components/BaseRateNeglect.js';
 import HotHand from './Components/HotHand.jsx';
 import SlotMachine from './Components/SlotMachine.jsx';
 import rationalization from './Components/rationalization.jsx';
+import illusion from './Components/Illusion.js';
 
 
 
@@ -47,6 +48,9 @@ function App() {
                       case "/rationalization":
                         Component = rationalization;
                         break
+                        case "/illusion":
+                          Component = illusion;
+                          break
                         default:
                           Component = () => <h1>404: Not Found</h1>
   }

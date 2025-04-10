@@ -1,18 +1,24 @@
-/* General Container */
-.hotcontainer {
+ /* General Container */
+ .hotcontainer {
     background-color: #262626;
     color: white;
     padding: 20px;
     border-radius: 10px;
-    min-height: 100vh;
+    min-height: 84vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-}
-
-/* Buttons */
-.hotbutton {
+   }
+  
+   .hotcontainer h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #e47824;
+   }
+  
+   /* Buttons */
+   .hotbutton {
     background-color: #e47824;
     color: #262626;
     font-size: 1rem;
@@ -21,16 +27,16 @@
     cursor: pointer;
     border-radius: 6px;
     transition: background 0.3s;
-}
-
-.hotbutton:hover {
+   }
+  
+   .hotbutton:hover {
     background-color: #ad5614;
     color: white;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-/* Vertical Card Layout */
-.hands-container {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+   }
+  
+   /* Horizontal Card Layout */
+   .hands-container {
     display: flex;
     gap: 40px;
     justify-content: center;
@@ -38,49 +44,51 @@
     max-width: 800px;
     margin: 20px 0;
     color: #e47824;
-}
-
-.hand-column {
+   }
+  
+   .hand-column {
     display: flex;
     flex-direction: column;
     align-items: center;
     color: #e47824;
-}
-/* Change h2 color to #e47824 */
-.hand-column h2 {
+   }
+  
+   /* Change h2 color to #e47824 */
+   .hand-column h2 {
     color: #e47824;
-}
-
-.hand {
+   }
+  
+   .hand {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     gap: 10px;
     margin: 20px 0;
-}
-
-.hotcard {
+   }
+  
+   .hotcard {
     width: 160px;
     height: 200px;
     perspective: 1000px;
-}
-
-.hotcard:first-child {
+   }
+  
+   .hotcard:first-child {
     margin-top: 0;
-}
-
-.hotcard-inner {
+   }
+  
+   .hotcard-inner {
     position: relative;
     width: 100%;
     height: 100%;
     transition: transform 0.6s;
     transform-style: preserve-3d;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     background: white;
-}
-
-.hotcard-front, .hotcard-back {
+   }
+  
+   .hotcard-front,
+   .hotcard-back {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -89,62 +97,68 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 8px;
-}
-
-.top-left {
+   }
+  
+   .top-left {
     position: absolute;
     top: 8px;
     left: 8px;
     font-size: 1.5rem;
-    }
-    
-    .bottom-right {
+   }
+  
+   .bottom-right {
     position: absolute;
     bottom: 8px;
     right: 8px;
     font-size: 1.5rem;
     transform: rotate(180deg);
-    }
-
-.hotcard-back {
+   }
+  
+   .hotcard-back {
     transform: rotateY(180deg);
-    background: repeating-linear-gradient(
-        45deg,
-        #ff4444,
-        #ff4444 10px,
-        #a81a1a 10px,
-        #a81a1a 20px
-    );
-}
-
-/* Card Colors */
-.red { color: #ff4444; }
-.black { color: #262626; }
-
-/* Text Elements */
-#result, #streak, #message {
+    background: repeating-linear-gradient(45deg,
+      #ff4444,
+      #ff4444 10px,
+      #a81a1a 10px,
+      #a81a1a 20px);
+   }
+  
+   /* Card Colors */
+   .red {
+    color: #ff4444;
+   }
+  
+   .black {
+    color: #262626;
+   }
+  
+   /* Text Elements */
+   #result,
+   #streak,
+   #message {
     margin: 10px 0;
     font-size: 1.1rem;
-}
-
-#streak {
+   }
+  
+   #streak {
     color: #e47824;
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 600px) {
+   }
+  
+   /* Mobile Responsiveness */
+   @media (max-width: 600px) {
     .hands-container {
-        flex-direction: column;
-        gap: 20px;
+     flex-direction: column;
+     gap: 20px;
     }
-    
+  
     .card {
-        width: 50px;
-        height: 80px;
-        font-size: 1rem;
+     width: 50px;
+     height: 80px;
+     font-size: 1rem;
     }
-}
-
-.game-completed-message h2 {
+   }
+  
+   .game-completed-message h2 {
     color: #e47824;
-}
+   }
+  
