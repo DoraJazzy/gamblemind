@@ -13,6 +13,12 @@
     color: #6e2dea;
 }
 
+.ostrich-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #6e2dea;
+}
+
 /* Button */
 .button {
     background-color: #6e2dea;

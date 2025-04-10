@@ -5,6 +5,7 @@
     gap: 20px; /* Add spacing between instructions and slot machines */
     padding: 20px;
     background: #000;
+    min-height: 84vh; /* Ensure the wrapper takes up at least the full viewport height */
 }
 
 .slot-machine {

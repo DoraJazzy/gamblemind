@@ -42,14 +42,14 @@ export default function LossAversionChart() {
 
     return (
         <div className="prospect-container">
-            <h2 style={{ color: '#ff4444' }}>Loss Aversion Chart</h2>
+            <h2 style={{ color: '#ff4444' }}>Loss Aversion</h2>
             <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
                 <button className="prospect-button" onClick={moveLineDown}>Lose Money</button>
                 <button className="prospect-button" onClick={resetChart}>Reset Your Mindset</button>
             </div>
 
-            <div style={{ width: '800px', height: '600px', margin: '20px auto' }}>
-                <LineChart width={800} height={600} data={data}>
+            <div style={{ width: '600px', height: '500px', margin: '20px auto' }}>
+                <LineChart width={600} height={500} data={data}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis
                         dataKey="x"

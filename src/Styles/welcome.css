@@ -4,7 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    min-height: 89vh;
+    height: 84vh;
     padding-left: 4rem; 
   }
   .welcome-container::before {

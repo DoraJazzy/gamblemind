@@ -10,6 +10,16 @@ html, body, #root {
   text-align: center;
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Ensures full viewport height */
+  min-height: 84vh; /* Ensures full viewport height */
 }
 
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 84vh;
+}
+
+.main-content {
+  flex: 1; /* Takes up all available space */
+  padding-bottom: 2rem; /* Prevents footer overlap */
+}

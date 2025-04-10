@@ -1,0 +1,101 @@
+/* Main Container */
+.illusion-container {
+  background-color: #262626;
+  color: #8cc846;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  min-height: 84vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Content Box */
+.illusion-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Text Styles */
+.illusion-title {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #8cc846;
+}
+
+.instruction-message {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #ffffff;
+}
+
+.round-counter {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+}
+
+/* Dice Area */
+.rolling-phase {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dice-background {
+  background-color: white;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px 0;
+  display: inline-block;
+}
+
+.square-row {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+
+.square {
+  width: 120px;
+  height: 120px;
+  transition: transform 0.3s ease;
+}
+
+.square:hover {
+  transform: scale(1.05);
+}
+
+/* Buttons */
+.illusionbutton {
+  background-color: #8cc846;
+  color: black;
+  font-size: 1.1rem;
+  padding: 12px 25px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.illusionbutton:hover {
+  background-color: #7cb335;
+  transform: translateY(-2px);
+}
+
+.choice-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.result-message {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 25px;
+  border-radius: 15px;
+  margin: 25px 0;
+}

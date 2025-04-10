@@ -75,7 +75,7 @@ export default function CoinFlipSimulator() {
 
     return (
         <div className="coin-flip-container">
-            <h2>Coin Flip Simulator</h2>
+            <h2>Monte-Carlo Fallacy</h2>
             <p>Flip a coin and see the probability of getting heads or tails!</p>
             <p>Total Flips: {totalFlips}</p>
             <button className="flip-coin-button" onClick={() => flipCoin(1)}>Flip 1 Coin</button>

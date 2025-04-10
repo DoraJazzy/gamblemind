@@ -12,6 +12,16 @@
     justify-content: center; /* Center vertically */
     align-items: center; /* Center horizontally */
 }
+.base-rate-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #5cc0a1;
+}
+.base-rate-container p {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #5cc0a1;
+}
 
 /* Drag & Drop Container */
 .event-container {
