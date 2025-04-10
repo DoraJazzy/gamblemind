@@ -78,7 +78,7 @@ export default function CoinFlipSimulator() {
             <h2>Coin Flip Simulator</h2>
             <p>Flip a coin and see the probability of getting heads or tails!</p>
             <p>Total Flips: {totalFlips}</p>
-            <button onClick={() => flipCoin(1)}>Flip 1 Coin</button>
+            <button className="flip-coin-button" onClick={() => flipCoin(1)}>Flip 1 Coin</button>
             <button className="reset-button" onClick={resetFlips}>Reset</button>
     
             <p>Last Flips: {flips.join(', ')}</p>
