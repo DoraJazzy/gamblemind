@@ -10,6 +10,7 @@ import ProspectTheory from './Components/ProspectTheory.js';
 import BaseRateNeglect from './Components/BaseRateNeglect.js';
 import HotHand from './Components/HotHand.jsx';
 import SlotMachine from './Components/SlotMachine.jsx';
+import rationalization from './Components/rationalization.jsx';
 
 
 
@@ -41,10 +42,13 @@ function App() {
                     Component = BaseRateNeglect;
                     break
                     case "/HotHand":
-                    Component = HotHand;
-                    break
-                    default:
-                    Component = () => <h1>404: Not Found</h1>
+                      Component = HotHand;
+                      break
+                      case "/rationalization":
+                        Component = rationalization;
+                        break
+                        default:
+                          Component = () => <h1>404: Not Found</h1>
   }
   return (
   <div>
