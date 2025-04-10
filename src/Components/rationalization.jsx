@@ -80,7 +80,7 @@ const Rationalization = () => {
       <div className="chat-layout">
         <img src={jackpotjack} alt="Jackpot Jack" className="chat-jack-image" />
         <div className="chat-content">
-          <h1>Rationalization in Gambling Chatbot</h1>
+          <h1>Convince Jack that he has rationalization bias.</h1>
           <div className="chat-box">
             {conversation.map((message, index) => (
               <div key={index} className={message.role === 'user' ? 'user' : 'assistant'}>

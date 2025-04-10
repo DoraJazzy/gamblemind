@@ -35,11 +35,11 @@ function App() {
                 case "/slotmachine":
                   Component = SlotMachine; 
                   break
-                  default:
+                  case "/rationalization":
+                    Component = rationalization;
+                    break 
+                    default:
                     Component = () => <h1>404: Not Found</h1> ;
-                      case "/rationalization":
-                        Component = rationalization;
-                        break 
                     
                   
 
