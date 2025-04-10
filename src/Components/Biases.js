@@ -20,7 +20,7 @@ export default function Biases() {
     { path: "/slotmachine", image: miss },
     { path: "/baserateneglect", image: base },
     { path: "/HotHand", image: hot },
-    { path: "/bias8", image: ratio },
+    { path: "/rationalization", image: ratio },
   ];
 
   return (
