@@ -4,7 +4,7 @@ import About from './Components/About.js';
 import Footer from './Components/Footer.js';
 import Welcome from './Components/Welcome.js';
 import Biases from './Components/Biases.js';
-import { Ostrich }  from './Components/Ostrich.js';
+
 import CoinFlipSimulator from './Components/CoinFlipSimulator.js';
 import ProspectTheory from './Components/ProspectTheory.js';
 import SlotMachine from './Components/SlotMachine.tsx';
