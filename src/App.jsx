@@ -7,13 +7,14 @@ import Biases from './Components/Biases.js';
 import { Ostrich }  from './Components/Ostrich.js';
 import CoinFlipSimulator from './Components/CoinFlipSimulator.js';
 import ProspectTheory from './Components/ProspectTheory.js';
-import SlotMachine from './Components/SlotMachine.tsx';
 import BaseRateNeglect from './Components/BaseRateNeglect.js';
 import HotHand from './Components/HotHand.jsx';
+import SlotMachine from './Components/SlotMachine.jsx';
+
+
 
 function App() {
   let Component; 
-
   switch(window.location.pathname) {
     case "/":
       Component = Welcome;
