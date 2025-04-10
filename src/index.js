@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "./App.css"; 
 import "./Styles/navbar.css";
-import "./Styles/footer.css";
+import "./Styles/Footer.css";
 import "./Styles/welcome.css";
 import"./Styles/about.css";
 import "./Styles/biases.css";

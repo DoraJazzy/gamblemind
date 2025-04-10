@@ -1,5 +1,5 @@
 import React from "react";
-import "../Styles/footer.css";
+import "../Styles/Footer.css";
 
 function Footer() { // Note: Component names should be PascalCase
     return (
