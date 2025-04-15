@@ -137,3 +137,50 @@
     transform: scale(1.1);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
+
+.question {
+    font-size: 1.2rem; /* Font size for instructions */
+    color: rgb(207, 207, 31); 
+    margin-bottom: 20px; /* Space below the instructions */
+    text-align: center; /* Center align the text */
+    text-shadow: 0 0 10px rgb(207, 207, 31), 0 0 20px rgb(207, 207, 31); /* Text shadow for glow effect */
+    margin-bottom: 20px; /* Space below the instructions */
+}
+
+
+
+.feedback-buttons {
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center the buttons */
+    gap: 40px; /* Add spacing between the buttons */
+    margin-top: 20px; /* Add spacing above the buttons */
+}
+
+.feedback-buttons button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: rgb(207, 207, 31);
+    font-weight: bold;
+    text-shadow: 0 0 10px rgb(207, 207, 31), 0 0 20px rgb(207, 207, 31);
+    background: red;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 20px rgb(207, 207, 31), 0 0 30px rgb(207, 207, 31);
+}
+
+.feedback-buttons button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.feedback-message {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    font-size: 1.2rem;
+    color: white;
+    border-radius: 5px;
+    margin-top: 20px; /* Add spacing above the feedback message */
+    text-align: center; /* Center align the feedback text */
+}
