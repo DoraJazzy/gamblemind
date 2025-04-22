@@ -15,7 +15,10 @@
     margin-bottom: 20px;
     color: #e47824;
    }
-  
+   .hotcontainer p#streak {
+      font-size: 50px;
+    }
+    
    /* Buttons */
    .hotbutton {
     background-color: #e47824;
@@ -199,4 +202,11 @@
    color: #e47824;
    margin-top: 10px;
    text-align: center;
+}
+canvas {
+   position: fixed;
+   top: 0;
+   left: 0;
+   z-index: 1000;
+   pointer-events: none;
 }

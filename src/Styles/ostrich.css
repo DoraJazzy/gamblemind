@@ -1,53 +1,107 @@
-/* General Styling for Ostrich Component */
+/* General Styling */
 .ostrich-container {
     background-color: #262626;
-    text-align: center;
+    max-height: 84vh;
+    display: flex;
+    color: #6e2dea;
     padding: 20px;
-    border-radius: 10px;
-    width: 100%;
-    min-height: 84vh;
+}
+
+.main-content {
+    flex: 1;
+    max-width: 800px;
+    margin: 40px auto;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center vertically */
-    align-items: center; /* Center horizontally */
-    color: #6e2dea;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
 
-.ostrich-container h1 {
-    font-size: 2.5rem;
+/* Thought Experiment Styling */
+.thought-experiment h1 {
+    font-size: 3rem;
+    margin-bottom: 60px;
+    color: #6e2dea;
+    text-align: center;
+}
+.thought-experiment h3 {
+    font-size: 2rem;
     margin-bottom: 10px;
-    color: #6e2dea;
+    color: white;
+    text-align: center;
+}
+.thought-experiment p {
+    color: #e0e0e0;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+    text-align: center;
 }
 
-/* Button */
+/* Button Styling */
+.ostrich-button {
+    display: flex;
+    gap: 15px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .button {
     background-color: #6e2dea;
     color: white;
-    font-size: 1rem;
-    padding: 10px 20px;
+    font-size: 1.2rem;
+    padding: 12px 24px;
     border: none;
     cursor: pointer;
     border-radius: 6px;
-    margin-top: 20px;
-    transition: background 0.3s;
+    transition: all 0.3s ease;
+    min-width: 250px;
 }
+
 .button:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     background-color: #4b1aa6;
+    box-shadow: 0 0 15px rgba(110, 45, 234, 0.5);
 }
 
-/* Feedback */
-.ostrich-feedback {
-    margin-top: 10px;
-    font-size: 1.2rem;
-    color: white;
-}
-
-/* Button Container */
-.ostrich-button {
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
+/* Feedback Container Styling */
+.feedback-container {
+    width: 400px;
+    max-height: 650px;
+    padding: 20px;
+    border: 1px solid #6e2dea;
+    border-radius: 10px;
+    animation: slideIn 0.3s ease-out;
+    background-color: rgba(255, 255, 255, 0.1);
     justify-content: center;
     align-items: center;
+    margin-right: 75px;
+}
+.feedback-container h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 2.2rem;
+    color: #6e2dea;
+    text-align: center;
+}
+.feedback-container p {
+    font-size: 1.4rem;
+    color: white;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }

@@ -112,7 +112,7 @@ const BaseRateNeglect = () => {
                 <h1>Base-Rate Neglect</h1>
                 <p>Drag and drop the events to arrange them in order of decreasing probability (most likely at the top).</p>
 
-                <div className="main-content">
+                <div className="maincontent">
                     <div className="event-column">
                         <div className="event-container">
                             {orderedEvents.map((event, index) => (
@@ -126,7 +126,7 @@ const BaseRateNeglect = () => {
                             ))}
                         </div>
                         <button onClick={checkOrder} className="check-button">Check Order</button>
-                        <p className="feedback">{feedback}</p>
+                        <p className="basefeedback">{feedback}</p>
                     </div>
 
                     {revealing && (

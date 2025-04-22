@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../Styles/hothand.css';
+import Confetti from 'react-confetti'
 
 export default function HotHand() {
     const [playerHand, setPlayerHand] = useState([]);
@@ -21,7 +22,7 @@ export default function HotHand() {
     const [showDealerTotal, setShowDealerTotal] = useState(false); // New state
     const [showVideo, setShowVideo] = useState(true);
     const [showDescription, setShowDescription] = useState(true);
-
+    const [showConfetti, setShowConfetti] = useState(false);
 
     const suits = ["\u2660", "\u2665", "\u2666", "\u2663"]; // ♠ ♥ ♦ ♣
 
@@ -83,6 +84,7 @@ export default function HotHand() {
     const playRound = () => {
         if (gameInProgress || round >= 9) return;
 
+        setShowConfetti(false);
         setShowVideo(false); // hide video on first round
         setShowDescription(false); // hide description on first round
         setRound(prev => prev + 1);
@@ -213,15 +215,18 @@ export default function HotHand() {
         }
     
         const winner = determineWinner(finalPlayerTotal, dealerTotalValue);
-    
+
         if (winner === -1) {
             setResult("You lose.");
             setStreak(0);
+            setShowConfetti(false); // Hide confetti if losing
         } else if (winner === 1) {
             setResult("You win!");
             setStreak(prev => prev + 1);
+            setShowConfetti(true); // Show confetti when winning
         } else {
             setResult("Push!");
+            setShowConfetti(false); // Hide confetti on push
         }
     
         setDealerHand(fullDealerHand);
@@ -293,6 +298,16 @@ export default function HotHand() {
                     <p><strong>Stand</strong> - Keep your current hand and see the dealer's cards</p>
                 </div>
             )}
+            {showConfetti && (
+            <Confetti
+                width={window.innerWidth}
+                height={window.innerHeight}
+                gravity={1.2}
+                numberOfPieces={500}
+                recycle={false} 
+                onConfettiComplete={() => setShowConfetti(false)}
+            />
+         )}
             {gameCompleted ? (
                 <button className="hotbutton" onClick={restartGame}>
                     Restart
