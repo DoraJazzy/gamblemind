@@ -133,10 +133,10 @@ const BaseRateNeglect = () => {
                         <div className="revealing-base">
                             <h3>What is this bias?</h3>
                             <p>
-                                <strong>Base rate neglect</strong> is driven by the availability heuristic—the 
-                                mental shortcut where judgments are based on how easily examples come to mind, rather than 
-                                objective odds. For instance, gamblers overestimate their chances of winning after seeing 
-                                jackpot winners celebrated in media, even though losses are far more common but rarely publicized.
+                                <strong>Base rate neglect</strong> is driven by a mental shortcut where judgments are based on how 
+                                easily examples come to mind, rather than objective odds. For instance, gamblers overestimate their 
+                                chances of winning after seeing jackpot winners celebrated in media, even though losses are far more 
+                                common but rarely publicized.
                             </p>
                             <h3>Tip:</h3>
                             <p>

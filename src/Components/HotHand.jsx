@@ -12,14 +12,16 @@ export default function HotHand() {
     const [round, setRound] = useState(0);
     const [playerTurn, setPlayerTurn] = useState(true);
     const [gameInProgress, setGameInProgress] = useState(false);
-    const [cardsDrawn, setCardsDrawn] = useState(0);
+    const [playerCardsDrawn, setPlayerCardsDrawn] = useState(0);
+    const [dealerCardsDrawn, setDealerCardsDrawn] = useState(0);
     const [gameCompleted, setGameCompleted] = useState(false);
     const [playerTotal, setPlayerTotal] = useState(0);
     const [dealerTotal, setDealerTotal] = useState(0);
     const [isBusted, setIsBusted] = useState(false);
+    const [isDealerBusted, setIsDealerBusted] = useState(false);
     const [dealerTotalDisplay, setDealerTotalDisplay] = useState('');
-    const [showPlayerTotal, setShowPlayerTotal] = useState(false); // New state
-    const [showDealerTotal, setShowDealerTotal] = useState(false); // New state
+    const [showPlayerTotal, setShowPlayerTotal] = useState(false);
+    const [showDealerTotal, setShowDealerTotal] = useState(false);
     const [showVideo, setShowVideo] = useState(true);
     const [showDescription, setShowDescription] = useState(true);
     const [showConfetti, setShowConfetti] = useState(false);
@@ -29,25 +31,44 @@ export default function HotHand() {
     const getCardClass = (suit) =>
         suit === "\u2665" || suit === "\u2666" ? "card red" : "card black";
 
-    const drawCard = () => {
+    const drawCard = (playerType) => {
         const roundSpecificCards = {
-            1: [{ value: "K", suit: "\u2660" }, { value: 3, suit: "\u2663" }],
-            2: [{ value: 5, suit: "\u2666" }, { value: "Q", suit: "\u2660" }],
-            3: [{ value: "Q", suit: "\u2663" }, { value: 6, suit: "\u2666" }],
-            4: [{ value: 3, suit: "\u2665" }, { value: 4, suit: "\u2665" }],
-            5: [{ value: 7, suit: "\u2660" }, { value: "Q", suit: "\u2663" }],
-            6: [{ value: 7, suit: "\u2666" }, { value: "J", suit: "\u2660" }],
-            7: [{ value: 8, suit: "\u2663" }, { value: "2", suit: "\u2665" }],
-            8: [{ value: "K", suit: "\u2665" }, { value: "Q", suit: "\u2666" }],
+            player: {
+                1: [{ value: "K", suit: "\u2660" }, { value: 3, suit: "\u2663" }],
+                2: [{ value: 5, suit: "\u2666" }, { value: "Q", suit: "\u2660" }],
+                3: [{ value: "Q", suit: "\u2663" }, { value: 6, suit: "\u2666" }],
+                4: [{ value: 7, suit: "\u2665" }, { value: 4, suit: "\u2665" }],
+                5: [{ value: 7, suit: "\u2660" }, { value: "Q", suit: "\u2663" }],
+                6: [{ value: 7, suit: "\u2666" }, { value: "J", suit: "\u2660" }],
+                7: [{ value: 8, suit: "\u2663" }, { value: "2", suit: "\u2665" }],
+                8: [{ value: "K", suit: "\u2665" }, { value: "Q", suit: "\u2666" }],
+            },
+            dealer: {
+                1: [{ value: "A", suit: "\u2665" }, { value: 2, suit: "\u2663" }],
+                2: [{ value: 4, suit: "\u2666" }, { value: "J", suit: "\u2660" }],
+                3: [{ value: "K", suit: "\u2663" }, { value: 5, suit: "\u2666" }],
+                4: [{ value: 3, suit: "\u2665" }, { value: 3, suit: "\u2665" }],
+                5: [{ value: 6, suit: "\u2660" }, { value: "K", suit: "\u2663" }],
+                6: [{ value: 6, suit: "\u2666" }, { value: "Q", suit: "\u2660" }],
+                7: [{ value: 7, suit: "\u2663" }, { value: "3", suit: "\u2665" }],
+                8: [{ value: 10, suit: "\u2665" }, { value: 2, suit: "\u2666" }],
+            }
         };
 
-        const roundCards = roundSpecificCards[round] || [{
+        const roundCards = roundSpecificCards[playerType]?.[round] || [{
             value: [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"][Math.floor(Math.random() * 13)],
             suit: suits[Math.floor(Math.random() * 4)]
         }];
 
-        if (cardsDrawn < roundCards.length) {
-            return roundCards[cardsDrawn];
+        let cardIndex;
+        if (playerType === 'player') {
+            cardIndex = playerCardsDrawn;
+        } else {
+            cardIndex = dealerCardsDrawn;
+        }
+
+        if (cardIndex < roundCards.length) {
+            return roundCards[cardIndex];
         } else {
             return {
                 value: [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"][Math.floor(Math.random() * 13)],
@@ -74,12 +95,13 @@ export default function HotHand() {
     };
 
     const determineWinner = (playerTotal, dealerTotal) => {
+        if (playerTotal > 21 && dealerTotal > 21) return 0; // Both busted, it's a push
         if (playerTotal > 21) return -1;
         if (dealerTotal > 21) return 1;
         if (dealerTotal > playerTotal) return -1;
         if (playerTotal > dealerTotal) return 1;
         return 0;
-    };
+    };    
 
     const playRound = () => {
         if (gameInProgress || round >= 9) return;
@@ -92,7 +114,8 @@ export default function HotHand() {
         setGameInProgress(true);
         setResult('');
         setMessage('');
-        setCardsDrawn(0);
+        setPlayerCardsDrawn(0);
+        setDealerCardsDrawn(0);
         setIsBusted(false);
         setShowPlayerTotal(true);
         setShowDealerTotal(true);
@@ -101,8 +124,6 @@ export default function HotHand() {
         let newPlayerHand = [];
         let newDealerHand = [];
         let hiddenCard = null;
-
-        const randomSuit = () => suits[Math.floor(Math.random() * 4)];
 
         switch (round) {
             case 0:
@@ -122,9 +143,8 @@ export default function HotHand() {
                 break;
             case 3:
                 newPlayerHand = [{ value: 8, suit: "\u2665" }, { value: 8, suit: "\u2663" }];
-                newDealerHand = [{ value: 7, suit: "\u2660"}];
-                hiddenCard = { value: 10, suit: "\u2666" };
-                console.log("Round 4 setup:", { newPlayerHand, newDealerHand, hiddenCard });
+                newDealerHand = [{ value: 7, suit: "\u2660" }];
+                hiddenCard = { value: 9, suit: "\u2666" };
                 break;
             case 4:
                 newPlayerHand = [{ value: 3, suit: "\u2666" }, { value: "J", suit: "\u2660" }];
@@ -144,7 +164,7 @@ export default function HotHand() {
             case 7:
                 newPlayerHand = [{ value: 8, suit: "\u2660" }, { value: 8, suit: "\u2666" }];
                 newDealerHand = [{ value: 7, suit: "\u2663" }];
-                hiddenCard = { value: "J", suit: "\u2665" };
+                hiddenCard = { value: 5, suit: "\u2665" };
                 break;
         }
 
@@ -165,25 +185,19 @@ export default function HotHand() {
     const handleDraw = () => {
         if (!playerTurn || !gameInProgress) return;
     
-        if (round >= 1 && round <= 8 && cardsDrawn >= 2) {
-            console.log("Draw prevented: Max cards drawn for this round.");
+        if (round >= 1 && round <= 8 && playerCardsDrawn >= 2) {
             return;
         }
     
-        const drawnCard = drawCard();
+        const drawnCard = drawCard('player');
         const newPlayerHand = [...playerHand, drawnCard];
         const newTotal = calculateHandTotal(newPlayerHand);
     
         setPlayerHand(newPlayerHand);
-        setCardsDrawn(prev => prev + 1);
+        setPlayerCardsDrawn(prev => prev + 1);
         setPlayerTotal(newTotal);
     
-        console.log(`Player drew: ${drawnCard.value}${drawnCard.suit}`);
-        console.log(`New player hand: ${newPlayerHand.map(card => card.value + card.suit).join(', ')}`);
-        console.log(`New player total: ${newTotal}`);
-    
         if (newTotal > 21) {
-            console.log("Player busted!");
             setIsBusted(true);
             setPlayerTurn(false);
             endRound(newTotal);
@@ -205,18 +219,33 @@ export default function HotHand() {
         let dealerTotalValue = calculateHandTotal(fullDealerHand);
         setDealerTotal(dealerTotalValue);
     
-        console.log(`Ending round. Player total: ${finalPlayerTotal}, Dealer total: ${dealerTotalValue}`);
-        setDealerTotalDisplay(dealerTotalValue.toString());
+        setDealerTotalDisplay(dealerTotalValue.toString()); // Update dealer total display
     
         while (dealerTotalValue < 17) {
-            const newCard = drawCard();
+            const newCard = drawCard('dealer');
             fullDealerHand.push(newCard);
             dealerTotalValue = calculateHandTotal(fullDealerHand);
+            setDealerCardsDrawn(prev => prev + 1);
+        }
+    
+        setDealerHand(fullDealerHand);
+        setDealerTotal(dealerTotalValue); // Update dealer total after all cards are drawn
+        setDealerTotalDisplay(dealerTotalValue.toString()); // Update dealer total display
+    
+        // Check if the dealer busted
+        if (dealerTotalValue > 21) {
+            setIsDealerBusted(true);
+        } else {
+            setIsDealerBusted(false);
         }
     
         const winner = determineWinner(finalPlayerTotal, dealerTotalValue);
-
-        if (winner === -1) {
+    
+        if (winner === 0) {
+            setResult("Push!");
+            setStreak(0);
+            setShowConfetti(false); // Hide confetti on push
+        } else if (winner === -1) {
             setResult("You lose.");
             setStreak(0);
             setShowConfetti(false); // Hide confetti if losing
@@ -224,12 +253,7 @@ export default function HotHand() {
             setResult("You win!");
             setStreak(prev => prev + 1);
             setShowConfetti(true); // Show confetti when winning
-        } else {
-            setResult("Push!");
-            setShowConfetti(false); // Hide confetti on push
         }
-    
-        setDealerHand(fullDealerHand);
     
         if (round === 8) {
             setGameCompleted(true);
@@ -246,16 +270,20 @@ export default function HotHand() {
         setRound(0);
         setPlayerTurn(true);
         setGameInProgress(false);
-        setCardsDrawn(0);
+        setPlayerCardsDrawn(0);
+        setDealerCardsDrawn(0);
         setGameCompleted(false);
         setPlayerTotal(0);
         setDealerTotal(0);
         setIsBusted(false);
+        setIsDealerBusted(false); // Reset dealer busted state
         setDealerTotalDisplay('');
         setShowPlayerTotal(false);
         setShowDealerTotal(false);
-
+        setShowVideo(true); // Reset video visibility
+        setShowDescription(true); // Reset description visibility
     };
+    
 
     const renderCard = (card, index) => (
         <div key={`${card.value}-${card.suit}-${index}`} className={`hotcard ${getCardClass(card.suit)}`}>
@@ -325,10 +353,10 @@ export default function HotHand() {
                         {playerHand.map(renderCard)}
                     </div>
                     {showPlayerTotal && (
-                        <div>
-                            Total: {playerTotal}
-                            {isBusted && <span style={{ color: 'red' }}> - Busted!</span>}
-                        </div>
+                    <div>
+                        Total: {playerTotal}
+                        {isBusted && <span style={{ color: 'red' }}> - Busted!</span>}
+                    </div>
                     )}
                 </div>
                 <div className="hand-column">
@@ -346,6 +374,7 @@ export default function HotHand() {
                     {showDealerTotal && (
                         <div>
                             Total: {dealerTotalDisplay}
+                            {isDealerBusted && <span style={{ color: 'red' }}> - Busted!</span>}
                         </div>
                     )}
                 </div>
@@ -356,7 +385,7 @@ export default function HotHand() {
                     <button
                         className="hotbutton"
                         onClick={handleDraw}
-                        disabled={(round >= 1 && round <= 8 && cardsDrawn >= 2) || playerTotal > 21}
+                        disabled={(round >= 1 && round <= 8 && playerCardsDrawn >= 2) || playerTotal > 21}
                     >
                         Hit
                     </button>
@@ -364,7 +393,7 @@ export default function HotHand() {
                 </div>
             )}
     
-            {playerTurn && gameInProgress && round >= 1 && round <= 8 && cardsDrawn >= 2 && (
+            {playerTurn && gameInProgress && round >= 1 && round <= 8 && playerCardsDrawn >= 2 && (
                 <p>Maximum cards drawn for this round</p>
             )}
     
@@ -380,7 +409,7 @@ export default function HotHand() {
             This game was programmed to make you lose the first 3 rounds,
             then win a few — assuming you drew more cards — making you feel
             like you were on a streak. Rounds 4 and 8 started with the exact
-            same hands. Did you draw another card in the 8th round but not in the 4th? 
+            same hands. Did you draw another card in the 8th round but not in the 4th?
             Did your attitude change? If so, you fell for the Hot-Hand Fallacy.
             </p>
             <p>
