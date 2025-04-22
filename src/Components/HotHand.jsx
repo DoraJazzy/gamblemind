@@ -19,6 +19,8 @@ export default function HotHand() {
     const [dealerTotalDisplay, setDealerTotalDisplay] = useState('');
     const [showPlayerTotal, setShowPlayerTotal] = useState(false); // New state
     const [showDealerTotal, setShowDealerTotal] = useState(false); // New state
+    const [showVideo, setShowVideo] = useState(true);
+    const [showDescription, setShowDescription] = useState(true);
 
 
     const suits = ["\u2660", "\u2665", "\u2666", "\u2663"]; // ♠ ♥ ♦ ♣
@@ -81,6 +83,8 @@ export default function HotHand() {
     const playRound = () => {
         if (gameInProgress || round >= 9) return;
 
+        setShowVideo(false); // hide video on first round
+        setShowDescription(false); // hide description on first round
         setRound(prev => prev + 1);
         setPlayerTurn(true);
         setGameInProgress(true);
@@ -264,6 +268,31 @@ export default function HotHand() {
     return (
         <div className="hotcontainer">
             <h1>Hot-Hand Fallacy</h1>
+            {showVideo && (
+                <div className="video-container">
+                    <iframe
+                        width="560"
+                        height="315"
+                        src="https://www.youtube.com/embed/ln_kJjdHGus"
+                        title="YouTube video player"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                    ></iframe>
+                </div>
+            )}
+            {showDescription && (
+                <div className="description-container">
+                    <h3>You'll play 8 rounds of a Blackjack-like game</h3>
+                    <p>Watch the video first to understand the basics of the game if you are a beginner.</p>
+                    <p>Note that in this version of the game, betting is not included, and you cannot split a 
+                        pair of cards—for example, two 8s.</p>
+                    <p>The dealer's hidden card is only revealed after you choose to stand.</p>
+                    <p><strong>Deal Cards</strong> - Starts each round (automatically deals initial hands)</p>
+                    <p><strong>Hit</strong> - Take another card (limited to 2 extra cards)</p>
+                    <p><strong>Stand</strong> - Keep your current hand and see the dealer's cards</p>
+                </div>
+            )}
             {gameCompleted ? (
                 <button className="hotbutton" onClick={restartGame}>
                     Restart
@@ -273,7 +302,7 @@ export default function HotHand() {
                     Deal Cards
                 </button>
             )}
-    
+            
             <div className="hands-container">
                 <div className="hand-column">
                     <h2>🧑‍💻 Your Hand:</h2>
@@ -306,7 +335,7 @@ export default function HotHand() {
                     )}
                 </div>
             </div>
-    
+
             {playerTurn && gameInProgress && round < 9 && (
                 <div>
                     <button
@@ -314,9 +343,9 @@ export default function HotHand() {
                         onClick={handleDraw}
                         disabled={(round >= 1 && round <= 8 && cardsDrawn >= 2) || playerTotal > 21}
                     >
-                        Draw Card
+                        Hit
                     </button>
-                    <button className="hotbutton" onClick={handleStay}>Stay</button>
+                    <button className="hotbutton" onClick={handleStay}>Stand</button>
                 </div>
             )}
     
@@ -329,20 +358,29 @@ export default function HotHand() {
             <p id="message">{message}</p>
     
             {round === 8 && gameCompleted && (
-                <div className="game-completed-message">
-                    <h2>Game Completed!</h2>
-                    <p>This game was programmed to make you lose the first 3 rounds,
-                        win a few rounds in a row — supposing you drew additional cards —
-                        and make you feel like you were in a good streak. Rounds 4 and
-                        8 started with the exact same starting hands; was your attitude
-                        different before and after the streak? If it was, you fell into the Hot-Hand
-                        Fallacy! After winning several rounds you may feel like you are in
-                        control and start taking more risk. If you would like to, restart
-                        the game and pay close attention to how your attitude differs
-                        in the cases when you have two 8 cards in your hand originally.
-                        Rememnber: a good streak does not mean that you invincible! </p>
-                </div>
-            )}
+    <div className="game-completed-container">
+        <h2>🎉 Game Completed!</h2>
+            <h3>🧠 What just happened?</h3>
+            <p>
+            This game was programmed to make you lose the first 3 rounds,
+            then win a few — assuming you drew more cards — making you feel
+            like you were on a streak. Rounds 4 and 8 started with the exact
+            same hands. Did you draw another card in the 8th round but not in the 4th? 
+            Did your attitude change? If so, you fell for the Hot-Hand Fallacy.
+            </p>
+            <p>
+            Hot-Hand Fallacy is the belief that a person who has experienced success 
+            with a random event (like winning several rounds) has a higher chance of 
+            continued success. This fallacy occurs even when each event is independent 
+            and the odds haven't changed. It can lead to overconfidence and risky decisions.
+            </p>
+            <h3>💡 Tip:</h3>
+            <p>
+            When you feel "on a roll," pause and ask yourself: Have the actual 
+            odds changed, or just how I feel about them?
+            </p>
+    </div>
+)}
         </div>
     );
 }

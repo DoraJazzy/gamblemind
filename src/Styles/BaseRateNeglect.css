@@ -1,82 +1,117 @@
-/* General Styling */
+/* General Container */
 .base-rate-container {
     background-color: #262626;
     color: #5cc0a1;
     text-align: center;
     padding: 20px;
-    border-radius: 10px;
     width: 100%;
     min-height: 84vh;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center vertically */
-    align-items: center; /* Center horizontally */
+    align-items: center;
 }
+
+/* Headers & Text */
 .base-rate-container h1 {
     font-size: 2.5rem;
     margin-bottom: 20px;
     color: #5cc0a1;
 }
+
 .base-rate-container p {
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin-bottom: 20px;
-    color: #5cc0a1;
+    color: white;
 }
 
-/* Drag & Drop Container */
+/* Main Layout */
+.main-content {
+    display: flex;
+    gap: 40px;
+    width: 90%;
+    max-width: 1200px;
+    align-items: flex-start; /* Align items to top */
+}
+
+/* Events Column */
+.event-column {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Event Container */
 .event-container {
     display: flex;
-    flex-direction: row;
-    gap: 15px;
-    overflow-x: auto;
-    padding: 15px;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    gap: 20px; /* Increased vertical spacing */
+    padding: 20px;
 }
 
 /* Event Cards */
 .basecard {
-    padding: 12px;
+    padding: 20px;
     background-color: #262626;
     border: 3px solid #5cc0a1;
     border-radius: 10px;
     cursor: grab;
     text-align: center;
-    min-width: 200px;
+    min-width: 250px;
     min-height: 80px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: white;
     transition: transform 0.2s ease-in-out;
 }
 
 .basecard:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 /* Button */
 .check-button {
     background-color: #5cc0a1;
     color: #262626;
-    font-size: 1rem;
-    padding: 10px 20px;
+    font-size: 1.2rem;
+    padding: 12px 24px;
     border: none;
     cursor: pointer;
     border-radius: 6px;
-    margin-top: 15px;
-    transition: background 0.3s;
+    margin-top: 30px;
 }
 
 .check-button:hover {
-    background-color: #5cc0a1;
+    background-color: #4aa88b;
 }
 
 /* Feedback */
 .feedback {
-    margin-top: 10px;
+    margin-top: 20px;
     font-size: 1.2rem;
     color: white;
+}
+
+/* Revealing Section */
+.revealing-base {
+    flex: 0 0 40%;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 15px;
+    margin-top: 20px;
+    max-height: 520px;
+    min-height: 520px;
+}
+
+.revealing-base h3 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    color: #5cc0a1;
+}
+.revealing-base p {
+    font-size: 1.2rem;
+    color: white;
+    line-height: 1.6;
 }

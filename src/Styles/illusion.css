@@ -4,13 +4,13 @@
   color: #8cc846;
   text-align: center;
   padding: 20px;
-  border-radius: 10px;
   width: 100%;
   min-height: 84vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: auto;
 }
 
 /* Content Box */
@@ -26,10 +26,16 @@
   color: #8cc846;
 }
 
-.instruction-message {
+.illusion-message {
   font-size: 1.2rem;
   margin-bottom: 30px;
   color: #ffffff;
+}
+
+.illusion-message h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #8cc846;
 }
 
 .round-counter {
@@ -98,4 +104,10 @@
   padding: 25px;
   border-radius: 15px;
   margin: 25px 0;
+}
+
+.result-message h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #8cc846;
 }
