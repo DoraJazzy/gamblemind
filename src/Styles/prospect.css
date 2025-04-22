@@ -2,7 +2,6 @@
 .prospect-container {
     background-color: #262626;
     padding: 10px;
-    border-radius: 10px;
     min-height: 100vh; /* Use min-height: 100vh instead of min-height: 100% */
     display: flex;
     flex-direction: column;

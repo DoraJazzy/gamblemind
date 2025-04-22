@@ -204,19 +204,32 @@ const SlotMachine = () => {
             </div>
 
             {/* Question and Feedback */}
-            {showQuestion && (
-                <div className="question">
-                    <h3>Which slot machine do you choose?</h3>
-                    <div className="feedback-buttons">
-                        <button onClick={() => handleChoice("3x3")}>3x3 Slot Machine</button>
-                        <button onClick={() => handleChoice("5x3")}>5x3 Slot Machine</button>
-                    </div>
+        {showQuestion && (
+            <div className="question">
+                <h3>Which slot machine do you choose?</h3>
+                <div className="feedback-buttons">
+                    <button onClick={() => handleChoice("3x3")}>3x3 Slot Machine</button>
+                    <button onClick={() => handleChoice("5x3")}>5x3 Slot Machine</button>
                 </div>
-            )}
+            </div>
+        )}
 
-            {feedback && <div className="feedback-message">{feedback}</div>}
-        </div>
+        {feedback && 
+            <div className="feedback-message">
+                <p>{feedback}</p>
+                <div className="pro-tip">
+                    <h3>💡Pro Tip:💡</h3>
+                    {feedback.includes("3x3") ? (
+                        <p>Keep in mind that slot machines are based on pure luck, even though it seems like you are close to hitting big the odds of winning still remain relatively small.</p>
+                    ) : (
+                        <p>Keep in mind that slot machines are based on pure luck, even though it seems like you are close to hitting big the odds of winning still remain relatively small.</p>
+                    )}
+                </div>
+            </div>
+        }
+    </div>
     );
 };
+
 
 export default SlotMachine;
