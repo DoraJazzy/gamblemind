@@ -45,7 +45,7 @@ export default function Illusion() {
     <div className="illusion-container">
       <div className="illusion-content">
         <h1 className="illusion-title">Illusion of Control</h1>
-        <p className="instruction-message">
+        <p className="illusion-message">
           {phase === "rolling" && "Roll the dice 5 times and try to spot the luckier die!"}
           {phase === "guessing" && "Which die was luckier? Make your choice!"}
           {phase === "revealing" && "The truth about your choice..."}
@@ -79,18 +79,39 @@ export default function Illusion() {
           </div>
         )}
 
-        {phase === "revealing" && (
-          <div className="revealing-phase">
-            <div className="result-message">
-              <p>You chose the {selectedDie} die.</p>
-              <p>But both dice were completely random all along!</p>
-              <p>This shows how we see patterns in randomness - the "illusion of control".</p>
-            </div>
-            <button className="illusionbutton" onClick={resetGame}>
-              Restart to see if the {selectedDie} die remains "luckier" or not
-            </button>
-          </div>
-        )}
+{phase === "revealing" && (
+  <div className="revealing-phase">
+    <div className="result-message">
+      <h3>You chose the {selectedDie} die.</h3>
+      <p>But both dice were completely random all along! This shows how we see patterns in randomness 
+        — the <strong>illusion of control</strong>.</p>
+      <div className="illusion-message">
+        <h3>What just happened?</h3>
+        <p>
+          The <strong>illusion of control</strong> is our tendency to believe we can influence random events.
+          In gambling, this often shows up as believing that certain numbers, strategies, or rituals can improve 
+          our chances — even when the outcomes are entirely random.
+        </p>
+        <p>
+          This effect is amplified by <strong>superstitious conditioning</strong>, 
+          where we associate certain actions or contexts (like wearing a lucky charm) with good outcomes, 
+          even when there's no real connection. There are no magical items that bring luck, but believing 
+          in them can push you to take irrational risks.
+        </p>
+        <h3>Tip:</h3>
+        <p>
+          Next time you feel one option is “luckier” in a game of chance, pause and ask: <em>Is this feeling 
+          based on evidence, or am I just trying to find meaning in randomness?</em> Leave your lucky charm 
+          at home and stop blowing on the dice — random events stay random.
+        </p>
+      </div>
+    </div>
+    <button className="illusionbutton" onClick={resetGame}>
+      Restart to see if the {selectedDie} die remains "luckier" or not
+    </button>
+  </div>
+)}
+
       </div>
     </div>
   );
