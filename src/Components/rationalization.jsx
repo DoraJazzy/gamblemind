@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Groq from "groq-sdk";
 import "../Styles/rationalization.css";
 import assistantSpec from "../Components/assistant.js";
 import jackpotjack from "../Visuals/jackpotjack.png";
-
+import rationalisation from "../Visuals/rationalisation.png";
 
 console.log("Assistant Purpose:", assistantSpec.purpose); // for dev/debug
 
@@ -17,6 +17,8 @@ const Rationalization = () => {
   const [chatCompletion, setChatCompletion] = useState(""); // State for chat response
   const [userMessage, setUserMessage] = useState(""); // State for user input
   const [conversation, setConversation] = useState([]); // Conversation history
+  const [isTyping, setIsTyping] = useState(false);
+  const chatBoxRef = useRef(null);
 
   // Fetch chat response when component mounts
   useEffect(() => {
@@ -31,6 +33,12 @@ const Rationalization = () => {
     };
     main();
   }, []);
+
+  useEffect(() => {
+    if (chatBoxRef.current) {
+      chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight;
+    }
+  }, [conversation]);
 
   const getGroqChatCompletion = async (message) => {
     if (!groq) {
@@ -63,41 +71,55 @@ const Rationalization = () => {
         { role: "user", content: userMessage },
       ]);
 
-      // Get chatbot response
+      setIsTyping(true);
       const chatResponse = await getGroqChatCompletion(userMessage);
       setConversation((prevConversation) => [
         ...prevConversation,
         { role: "assistant", content: chatResponse },
       ]);
+      setIsTyping(false);
 
       // Clear user message input
       setUserMessage("");
     }
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      handleSendMessage();
+    }
+  };
+
   return (
     <div className="rationalization-page">
       <div className="chat-layout">
-        <img src={jackpotjack} alt="Jackpot Jack" className="chat-jack-image" />
+        <img src={rationalisation} alt="Rationalization" className="chat-rationalization-image" />
         <div className="chat-content">
           <h1>Convince Jack that he has rationalization bias.</h1>
-          <div className="chat-box">
+          <div className="chat-box" ref={chatBoxRef}>
             {conversation.map((message, index) => (
               <div key={index} className={message.role === 'user' ? 'user' : 'assistant'}>
                 <p><strong>{message.role === 'user' ? "You:" : "Jackpot Jack:"}</strong> {message.content}</p>
               </div>
             ))}
+            {isTyping && (
+              <div className="assistant typing-indicator">
+                <p><strong>Jackpot Jack:</strong> <em>typing...</em></p>
+              </div>
+            )}
           </div>
           <div className="input-area">
             <input
               type="text"
               value={userMessage}
               onChange={handleUserInput}
+              onKeyDown={handleKeyDown}
               placeholder="Type your message..."
             />
             <button onClick={handleSendMessage}>Send</button>
           </div>
         </div>
+        <img src={jackpotjack} alt="Jackpot Jack" className="chat-jack-image" />
       </div>
     </div>
   );

@@ -18,7 +18,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    opacity: 0.3; /* Adjust transparency */
+    opacity: 0.8; /* Adjust transparency */
     z-index: -1; /* Keeps it behind content */
 }
 
@@ -48,19 +48,18 @@
   }
   
   .welcome-button.gray {
-    background-color: #5f5e5e;
+    background-color: #e4941be8;
     font-family: Squada One;
     color: white;
   }
   
   .welcome-button.red {
-    background-color: rgb(195, 5, 5);
+    background-color: rgba(187, 66, 6, 0.913);
     font-family: Squada One;
     color: white;
   }
   
   /* Button hover effect */
   .welcome-button:hover {
-    opacity: 0.8;
+    opacity: 0.9;
   }
-  
