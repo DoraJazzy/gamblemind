@@ -5,7 +5,7 @@
   text-align: center;
   margin-top: auto;
   width: 100%;
-  font-size: 0.5rem; /* Tiny text */
+  font-size: 1rem; /* Tiny text */
   line-height: 1; /* No extra spacing */
   height: 60px; /* Fixed minimal height */
   display: flex;
