@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ReferenceLine } from "recharts";
 import '../Styles/CoinFlipSimulator.css';
 
 export default function CoinFlipSimulator() {
@@ -77,7 +77,6 @@ export default function CoinFlipSimulator() {
         <div className="coin-flip-container">
             <h2>Monte-Carlo Fallacy</h2>
             <p>Flip a coin and see the probability of getting heads or tails!</p>
-            <p>Total Flips: {totalFlips}</p>
             <button className="flip-coin-button" onClick={() => flipCoin(1)}>Flip 1 Coin</button>
             <button className="reset-button" onClick={resetFlips}>Reset</button>
     
@@ -100,14 +99,23 @@ export default function CoinFlipSimulator() {
 
             {message && <div className="message-box">{message}</div>}
 
-            <div className="chart-container">
-                <BarChart width={600} height={400} data={data}>
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="outcome" />
-                    <YAxis tickFormatter={(value) => `${(value * 100).toFixed(1)}%`} />
-                    <Tooltip content={<CustomTooltip />} />
-                    <Bar dataKey="probability" fill="#8884d8" />
-                </BarChart>
+            <div className="chart-and-counter">
+                <div className="chart-container">
+                    <BarChart width={600} height={400} data={data}>
+                        <YAxis domain={[0, 1]} tickFormatter={(value) => `${(value * 100).toFixed(1)}%`}>
+                            <ReferenceLine y={0.5} stroke="red" strokeDasharray="3 3" />
+                        </YAxis>
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="outcome" />
+                        <Tooltip content={<CustomTooltip />} />
+                        <Bar dataKey="probability" fill="#ffcc00" />
+                    </BarChart>
+                </div>
+                <div className="flip-counter">
+                    <p>Total Flips: <span className="value">{totalFlips}</span></p>
+                    <p>Heads: <span className="value">{flipCounts.H}</span></p>
+                    <p>Tails: <span className="value">{flipCounts.T}</span></p>
+                </div>
             </div>
         </div>
     );

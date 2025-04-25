@@ -11,6 +11,8 @@
     flex: 1;
     max-width: 800px;
     margin: 40px auto;
+    width: 100%;
+    min-height: 84vh;
     display: flex;
     flex-direction: column;
     padding: 20px;

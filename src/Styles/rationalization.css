@@ -5,6 +5,7 @@
     font-family: 'Press Start 2P', cursive;
     color: #f4e2c4;
     min-height: 84vh;
+    
 }
 
 .chat-layout {
@@ -12,7 +13,7 @@
   flex-direction: row;
   align-items: flex-start;
   gap: 20px;
-  justify-content: center;
+  justify-content: space-between;
   width: 100%;
 }
 
@@ -22,7 +23,21 @@
 }
 
 .chat-jack-image {
-  width: 200px;
+    width: 200px;
+    height: auto;
+    border: 3px solid #c49e68;
+    box-shadow: 0 0 12px rgba(255, 214, 133, 0.3);
+    image-rendering: pixelated;
+    background-color: #1a110d;
+    padding: 4px;
+    border-radius: 4px;
+    margin-top : 69px;;
+    margin-right: 60px;
+  
+  }
+
+.chat-rationalization-image {
+  width: 350px;
   height: auto;
   border: 3px solid #c49e68;
   box-shadow: 0 0 12px rgba(255, 214, 133, 0.3);
@@ -30,7 +45,8 @@
   background-color: #1a110d;
   padding: 4px;
   border-radius: 4px;
-  margin-top : 69px;
+  margin-top: 69px;
+  margin-left: 60px;
 }
 
 h1 {
@@ -42,7 +58,7 @@ h1 {
 
 .chat-box {
   width: 100%;
-  height: 400px;
+  height: 450px;
   overflow-y: scroll;
   padding: 15px;
   background-color: #2b1b17;

@@ -13,6 +13,9 @@
 }
 
 .button-row {
+    background-color: #262626;
+    padding: 10px;
+    min-height: 100vh; /* Use min-height: 100vh instead of min-height: 100% */
     display: flex;
     gap: 10px;
     justify-content: center;
