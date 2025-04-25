@@ -24,8 +24,8 @@ const Rationalization = () => {
   useEffect(() => {
     const main = async () => {
       try {
-        const defaultMessage = "Explain rationalization in gambling in a simple way.";
-        const completion = await getGroqChatCompletion(defaultMessage);
+        const defaultMessage = "Convince Jack that he has rationalization bias.";
+        const completion = await getGroqChatCompletion(defaultMessage, []);
         setChatCompletion(completion); // Initial chat message
       } catch (error) {
         console.error("Error occurred while getting Groq chat completion:", error);
@@ -40,18 +40,20 @@ const Rationalization = () => {
     }
   }, [conversation]);
 
-  const getGroqChatCompletion = async (message) => {
+  const getGroqChatCompletion = async (message, conversationHistory) => {
     if (!groq) {
       throw new Error("Groq instance is not initialized.");
     }
+    const messages = [
+      { 
+        role: "system", 
+        content: `${assistantSpec.purpose.join("\n")}\n\nPlease keep all answers ${assistantSpec.responseLength}.` 
+      },
+      ...conversationHistory,
+      { role: "user", content: message },
+    ];
     const response = await groq.chat.completions.create({
-      messages: [
-        { 
-          role: "system", 
-          content: `${assistantSpec.purpose.join("\n")}\n\nPlease keep all answers ${assistantSpec.responseLength}.` 
-        },
-        { role: "user", content: message },
-      ],
+      messages,
       model: "llama-3.3-70b-versatile",
     });
     return response.choices[0]?.message?.content || "No response from API";
@@ -72,7 +74,7 @@ const Rationalization = () => {
       ]);
 
       setIsTyping(true);
-      const chatResponse = await getGroqChatCompletion(userMessage);
+      const chatResponse = await getGroqChatCompletion(userMessage, conversation);
       setConversation((prevConversation) => [
         ...prevConversation,
         { role: "assistant", content: chatResponse },
