@@ -35,9 +35,9 @@ export default function HotHand() {
         const roundSpecificCards = {
             player: {
                 1: [{ value: "K", suit: "\u2660" }, { value: 3, suit: "\u2663" }],
-                2: [{ value: 5, suit: "\u2666" }, { value: "Q", suit: "\u2660" }],
+                2: [{ value: 6, suit: "\u2666" }, { value: 10, suit: "\u2665" }],
                 3: [{ value: "Q", suit: "\u2663" }, { value: 6, suit: "\u2666" }],
-                4: [{ value: 7, suit: "\u2665" }, { value: 4, suit: "\u2665" }],
+                4: [{ value: 4, suit: "\u2665" }, { value: 9, suit: "\u2665" }],
                 5: [{ value: 7, suit: "\u2660" }, { value: "Q", suit: "\u2663" }],
                 6: [{ value: 7, suit: "\u2666" }, { value: "J", suit: "\u2660" }],
                 7: [{ value: 8, suit: "\u2663" }, { value: "2", suit: "\u2665" }],
@@ -45,11 +45,11 @@ export default function HotHand() {
             },
             dealer: {
                 1: [{ value: "A", suit: "\u2665" }, { value: 2, suit: "\u2663" }],
-                2: [{ value: 4, suit: "\u2666" }, { value: "J", suit: "\u2660" }],
+                2: [{ value: 6, suit: "\u2660" }, { value: "J", suit: "\u2660" }],
                 3: [{ value: "K", suit: "\u2663" }, { value: 5, suit: "\u2666" }],
-                4: [{ value: 3, suit: "\u2665" }, { value: 3, suit: "\u2665" }],
-                5: [{ value: 6, suit: "\u2660" }, { value: "K", suit: "\u2663" }],
-                6: [{ value: 6, suit: "\u2666" }, { value: "Q", suit: "\u2660" }],
+                4: [{ value: 9, suit: "\u2663" }, { value: 3, suit: "\u2665" }],
+                5: [{ value: 5, suit: "\u2660" }, { value: "K", suit: "\u2663" }],
+                6: [{ value: 3, suit: "\u2666" }, { value: "Q", suit: "\u2660" }],
                 7: [{ value: 7, suit: "\u2663" }, { value: "3", suit: "\u2665" }],
                 8: [{ value: 10, suit: "\u2665" }, { value: 2, suit: "\u2666" }],
             }
@@ -129,42 +129,42 @@ export default function HotHand() {
             case 0:
                 newPlayerHand = [{ value: 7, suit: "\u2666" }, { value: 5, suit: "\u2663" }];
                 newDealerHand = [{ value: "Q", suit: "\u2660" }];
-                hiddenCard = { value: 8, suit: "\u2665" };
+                hiddenCard = { value: 7, suit: "\u2665" };
                 break;
             case 1:
-                newPlayerHand = [{ value: 3, suit: "\u2665" }, { value: 4, suit: "\u2660" }];
-                newDealerHand = [{ value: 8, suit: "\u2666" }];
-                hiddenCard = { value: 9, suit: "\u2660" };
+                newPlayerHand = [{ value: 5, suit: "\u2660" }, { value: 4, suit: "\u2666" }];
+                newDealerHand = [{ value: 8, suit: "\u2663" }];
+                hiddenCard = { value: 4, suit: "\u2660" };
                 break;
             case 2:
-                newPlayerHand = [{ value: 5, suit: "\u2665" }, { value: 7, suit: "\u2666" }];
+                newPlayerHand = [{ value: 5, suit: "\u2665" }, { value: 7, suit: "\u2663" }];
                 newDealerHand = [{ value: 8, suit: "\u2660" }];
                 hiddenCard = { value: "A", suit: "\u2660" };
                 break;
             case 3:
-                newPlayerHand = [{ value: 8, suit: "\u2665" }, { value: 8, suit: "\u2663" }];
+                newPlayerHand = [{ value: 8, suit: "\u2665" }, { value: 8, suit: "\u2666" }];
                 newDealerHand = [{ value: 7, suit: "\u2660" }];
-                hiddenCard = { value: 9, suit: "\u2666" };
+                hiddenCard = { value: 10, suit: "\u2665" };
                 break;
             case 4:
-                newPlayerHand = [{ value: 3, suit: "\u2666" }, { value: "J", suit: "\u2660" }];
-                newDealerHand = [{ value: 8, suit: "\u2665" }];
+                newPlayerHand = [{ value: 3, suit: "\u2665" }, { value: "J", suit: "\u2660" }];
+                newDealerHand = [{ value: 4, suit: "\u2663" }];
                 hiddenCard = { value: 9, suit: "\u2666" };
                 break;
             case 5:
                 newPlayerHand = [{ value: 8, suit: "\u2663" }, { value: 6, suit: "\u2666" }];
-                newDealerHand = [{ value: "K", suit: "\u2663" }];
-                hiddenCard = { value: 7, suit: "\u2660" };
+                newDealerHand = [{ value: "A", suit: "\u2663" }];
+                hiddenCard = { value: 3, suit: "\u2660" };
                 break;
             case 6:
                 newPlayerHand = [{ value: 5, suit: "\u2666" }, { value: 6, suit: "\u2660" }];
                 newDealerHand = [{ value: 10, suit: "\u2666" }];
-                hiddenCard = { value: 8, suit: "\u2663" };
+                hiddenCard = { value: 8, suit: "\u2665" };
                 break;
             case 7:
-                newPlayerHand = [{ value: 8, suit: "\u2660" }, { value: 8, suit: "\u2666" }];
-                newDealerHand = [{ value: 7, suit: "\u2663" }];
-                hiddenCard = { value: 5, suit: "\u2665" };
+                newPlayerHand = [{ value: 8, suit: "\u2665" }, { value: 8, suit: "\u2666" }];
+                newDealerHand = [{ value: 7, suit: "\u2660" }];
+                hiddenCard = { value: 5, suit: "\u2660" };
                 break;
         }
 
@@ -301,6 +301,19 @@ export default function HotHand() {
     return (
         <div className="hotcontainer">
             <h1>Hot-Hand Fallacy</h1>
+            <div className="container-container">
+            {showDescription && (
+                <div className="description-container">
+                    <h3>You'll play 8 rounds of a Blackjack-like game</h3>
+                    <p>Watch the video first to understand the basics of the game if you are a beginner.</p>
+                    <p>Note that in this version of the game, betting is not included, and you cannot split a 
+                        pair of cards—for example, two 8s.</p>
+                    <p>The dealer's hidden card is only revealed after you choose to stand.</p>
+                    <p><strong>Deal Cards</strong> - Start each round (automatically deals initial hands)</p>
+                    <p><strong>Hit</strong> - Draw another card (limited to 2 extra cards)</p>
+                    <p><strong>Stand</strong> - Keep your current hand and see the dealer's cards</p>
+                </div>
+            )}
             {showVideo && (
                 <div className="video-container">
                     <iframe
@@ -314,18 +327,7 @@ export default function HotHand() {
                     ></iframe>
                 </div>
             )}
-            {showDescription && (
-                <div className="description-container">
-                    <h3>You'll play 8 rounds of a Blackjack-like game</h3>
-                    <p>Watch the video first to understand the basics of the game if you are a beginner.</p>
-                    <p>Note that in this version of the game, betting is not included, and you cannot split a 
-                        pair of cards—for example, two 8s.</p>
-                    <p>The dealer's hidden card is only revealed after you choose to stand.</p>
-                    <p><strong>Deal Cards</strong> - Starts each round (automatically deals initial hands)</p>
-                    <p><strong>Hit</strong> - Take another card (limited to 2 extra cards)</p>
-                    <p><strong>Stand</strong> - Keep your current hand and see the dealer's cards</p>
-                </div>
-            )}
+            </div>
             {showConfetti && (
             <Confetti
                 width={window.innerWidth}
@@ -364,9 +366,9 @@ export default function HotHand() {
                     <div className="hand">
                         {dealerHand.map(renderCard)}
                         {playerTurn && hiddenDealerCard && (
-                            <div key="hidden" className="hotcard hidden">
-                                <div className="hotcard-inner">
-                                    <div className="hotcard-back"></div>
+                           <div key="hidden" className="hotcard hidden">
+                            <div className="hotcard-inner">
+                             <div className="hotcard-back"></div>
                                 </div>
                             </div>
                         )}
@@ -381,7 +383,7 @@ export default function HotHand() {
             </div>
 
             {playerTurn && gameInProgress && round < 9 && (
-                <div>
+                <div className="hotbutton-group">
                     <button
                         className="hotbutton"
                         onClick={handleDraw}

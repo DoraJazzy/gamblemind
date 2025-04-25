@@ -9,6 +9,8 @@ export default function CoinFlipSimulator() {
     const [decisionButtonsVisible, setDecisionButtonsVisible] = useState(false);
     const [flipCounts, setFlipCounts] = useState({ H: 0, T: 0 });
     const [guessMade, setGuessMade] = useState(false);
+    const [fallacyDescription, setFallacyDescription] = useState('');
+    const [fallacyTip, setFallacyTip] = useState('');
 
     const flipCoin = (numFlips) => {
         let newFlips = [];
@@ -18,7 +20,6 @@ export default function CoinFlipSimulator() {
     
         for (let i = 0; i < numFlips; i++) {
             let newFlip;
-            
             if (totalFlips + i < 4) {
                 newFlip = 'Tails'; // Ensure the first four flips are tails
                 tailsCount++;
@@ -26,7 +27,6 @@ export default function CoinFlipSimulator() {
                 newFlip = Math.random() < 0.5 ? 'Heads' : 'Tails'; // Random flips after 4
                 newFlip === "Heads" ? headsCount++ : tailsCount++;
             }
-    
             newFlips.push(newFlip);
         }
     
@@ -42,16 +42,26 @@ export default function CoinFlipSimulator() {
             T: prev.T + tailsCount,
         }));
     };
+
     const resetFlips = () => {
-        setFlips([]); // Clears the coin flip results
-        setFlipCounts({ H: 0, T: 0 }); // Resets the counts for the graph
-        setMessage(''); // Clear previous messages
-        setStreakMessage(''); // Clear the streak message
-        setDecisionButtonsVisible(false); // Hide decision buttons again, if necessary
+        setFlips([]);
+        setFlipCounts({ H: 0, T: 0 });
+        setMessage('');
+        setStreakMessage('');
+        setDecisionButtonsVisible(false);
+        setGuessMade(false);
+        setFallacyDescription('');
+        setFallacyTip('');
     };
 
     const handleGuess = (guess) => {
-        setMessage(`You guessed: ${guess}. The probability of tails is 50% regardless of past flips! This is the Monte Carlo Fallacy—past events do not change the odds.`);
+        setMessage(`You guessed: ${guess}. The probability of tails is 50% regardless of past flips!`);
+        setFallacyDescription(
+            "The Monte Carlo fallacy, also known as the gambler’s fallacy, is the mistaken belief that if a random event (like a coin landing on heads or tails) has occurred more or less frequently than expected in the past, it is more likely to 'even out' in the future. In reality, previous coin flips does not affect future flips. If you keep clicking 'Flip 100 Coins', the proportions of heads and tails will tend to get closer to 50% each, but individual outcomes remain random and unpredictable."
+        );
+        setFallacyTip(
+            "Don’t let patterns in random events fool you! Even after a long streak of heads or tails, the probability of the next coin flip remains 50%. Each flip is independent—past outcomes do not change the odds."
+        );
         setGuessMade(true);
     };
 
@@ -107,7 +117,7 @@ export default function CoinFlipSimulator() {
                         </YAxis>
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="outcome" />
-                        <Tooltip content={<CustomTooltip />} />
+                        <Tooltip content={<CustomTooltip />} cursor={false}/>
                         <Bar dataKey="probability" fill="#ffcc00" />
                     </BarChart>
                 </div>
@@ -117,6 +127,15 @@ export default function CoinFlipSimulator() {
                     <p>Tails: <span className="value">{flipCounts.T}</span></p>
                 </div>
             </div>
+
+            {(fallacyDescription || fallacyTip) && (
+            <div className="fallacy-info-container">
+                    <h3>What is going on?</h3>
+                    <p>{fallacyDescription}</p>
+                    <h3>Pro Tip</h3>
+                    <p>{fallacyTip}</p>
+            </div>
+            )}
         </div>
     );
 }
