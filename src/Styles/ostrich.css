@@ -1,7 +1,7 @@
 /* General Styling */
 .ostrich-container {
     background-color: #262626;
-    max-height: 84vh;
+    min-height: 84vh;
     display: flex;
     color: #6e2dea;
     padding: 20px;
@@ -72,7 +72,7 @@
 /* Feedback Container Styling */
 .feedback-container {
     width: 400px;
-    min-height: 650px;
+    height: fit-content;
     padding: 20px;
     border: 1px solid #6e2dea;
     border-radius: 10px;
