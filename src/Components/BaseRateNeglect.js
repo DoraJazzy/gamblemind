@@ -112,7 +112,7 @@ const BaseRateNeglect = () => {
                 <h1>Base-Rate Neglect</h1>
                 <p>Drag and drop the events to arrange them in order of decreasing probability (most likely at the top).</p>
 
-                <div className="main-content">
+                <div className="maincontent">
                     <div className="event-column">
                         <div className="event-container">
                             {orderedEvents.map((event, index) => (
@@ -126,17 +126,17 @@ const BaseRateNeglect = () => {
                             ))}
                         </div>
                         <button onClick={checkOrder} className="check-button">Check Order</button>
-                        <p className="feedback">{feedback}</p>
+                        <p className="basefeedback">{feedback}</p>
                     </div>
 
                     {revealing && (
                         <div className="revealing-base">
                             <h3>What is this bias?</h3>
                             <p>
-                                <strong>Base rate neglect</strong> is driven by the availability heuristic—the 
-                                mental shortcut where judgments are based on how easily examples come to mind, rather than 
-                                objective odds. For instance, gamblers overestimate their chances of winning after seeing 
-                                jackpot winners celebrated in media, even though losses are far more common but rarely publicized.
+                                <strong>Base rate neglect</strong> is driven by a mental shortcut where judgments are based on how 
+                                easily examples come to mind, rather than objective odds. For instance, gamblers overestimate their 
+                                chances of winning after seeing jackpot winners celebrated in media, even though losses are far more 
+                                common but rarely publicized.
                             </p>
                             <h3>Tip:</h3>
                             <p>
