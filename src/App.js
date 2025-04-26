@@ -16,13 +16,6 @@ import illusion from './Components/Illusion.js';
 
 
 function App() {
-
-// Handle GitHub Pages 404 redirect
-if (window.location.search.includes('?p=')) {
-  const path = window.location.search.split('?p=')[1];
-  window.history.replaceState({}, '', path);
-}
-
   let Component; 
   switch(window.location.pathname) {
     case "/":
@@ -61,7 +54,13 @@ if (window.location.search.includes('?p=')) {
                         default:
                           Component = () => <h1>404: Not Found</h1>
   }
-  return <Component />;
+  return (
+  <div>
+    <Navbar />
+    <Component />
+    <Footer />
+  </div>
+  );
 }
 
 export default App;
