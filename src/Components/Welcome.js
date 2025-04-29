@@ -21,6 +21,9 @@ export default function Welcome() {
         >
           Cognitive Biases
         </button>
+        <a href="https://forms.gle/kh8fWeVnV1TLV2fd6" target="_blank" rel="noopener noreferrer">
+          <button className="welcome-button survey">Feedback</button>
+        </a>
       </div>
     </div>
   );
