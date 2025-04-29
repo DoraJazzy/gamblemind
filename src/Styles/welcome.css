@@ -58,6 +58,12 @@
     font-family: Squada One;
     color: white;
   }
+
+  .welcome-button.survey {
+    background-color: #996849;
+    font-family: Squada One;
+    color: white;
+  }
   
   /* Button hover effect */
   .welcome-button:hover {

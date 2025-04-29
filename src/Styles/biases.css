@@ -24,7 +24,7 @@
 }
 
 .biases-title {
-    font-size: 2rem;
+    font-size: 3rem;
     margin-bottom: 20px;
     font-weight: bold;
     color: #ccc;
@@ -57,7 +57,7 @@
 }
 
 .bias-button:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 .bias-icon {
