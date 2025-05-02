@@ -47,6 +47,8 @@ body {
 
 .nav li a:hover {
     background-color: #777 !important;
+    height: 80%;
+    border-radius: 8px;
 }
 
 .nav li.active a {
