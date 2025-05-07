@@ -14,6 +14,11 @@ export default function NavBar() {
         <li>
           <a href="/biases">Cognitive Biases</a>
         </li>
+        <li>
+          <a href="https://forms.gle/kh8fWeVnV1TLV2fd6" target="_blank" rel="noopener noreferrer">
+            Feedback
+          </a>
+        </li>
       </ul>
     </nav>
   );
