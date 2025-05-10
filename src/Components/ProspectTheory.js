@@ -74,7 +74,7 @@ export default function LossAversionChart() {
                         <YAxis
                             domain={[-40, 40]}
                             label={{
-                                value: 'Utility',
+                                value: 'Value',
                                 angle: -90,
                                 position: 'centre',
                                 offset: 0,
