@@ -35,7 +35,7 @@ export default function LossAversionChart() {
         if (active && payload && payload.length) {
             return (
                 <div style={{ background: "#fff", padding: "5px", border: "1px solid #ccc", borderRadius: "5px" }}>
-                    <p>{`Utility: ${payload[0].value}`}</p>
+                    <p>{`Value: ${payload[0].value}`}</p>
                 </div>
             );
         }
